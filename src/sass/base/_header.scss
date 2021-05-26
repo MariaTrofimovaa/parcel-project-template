@@ -1,0 +1,63 @@
+
+.input-box {
+  padding-top: 30px;
+}
+
+.input-form {
+    position: relative;
+}
+
+.search-box {
+
+    background-color: rgba(255, 255, 255, 0.555);
+    padding: 14px 24px;
+    position: relative;
+    align-items: center;
+    border-radius: 30px;
+    margin-bottom: 14px;
+
+    border: none;
+    padding-left: 22%;
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+    width: 100%;
+    max-width: 320px;
+    outline: none;
+
+    &::placeholder {
+      color: black;
+      font-size: 14px;
+    }
+}
+
+.location-btn {
+    position: absolute;
+    top: 5.7%;
+    right: 80%;
+    // opacity: 0.971;
+    border: none;
+    width: 22px;
+    height: 22px;
+    background-color: black;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+
+}
+
+.favorite-btn {
+    position: absolute;
+    top: 5.7%;
+    right: 13%;
+    // opacity: 0.971;
+    border: none;
+    width: 22px;
+    height: 22px;
+    background-color: black;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+}

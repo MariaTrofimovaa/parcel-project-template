@@ -22,22 +22,24 @@
 
     <section class="container">
       <div class="input-box">
-        <button class="location-btn">
-          <svg class="">
+        <button class="location-btn button" type="button">
+          <svg class="" width="10" height="10">
             <use href=""></use>
           </svg>
         </button>
 
         <form class="input-form">
           <input class="search-box" type="text" placeholder="Enter the city" />
-          <input class="star" type="checkbox" />
+          <!-- <input class="star" type="checkbox" /> -->
         </form>
-      </div>
+
+
+
 
       <div class="favorite-box">
         <ul class="city-list"></ul>
         <button class="fav-btn">
-          <svg>
+          <svg width="10" height="10">
             <use href=""></use>
           </svg>
         </button>
@@ -50,6 +52,7 @@
             <button data-action="today">today</button>
             <button data-action="fiveDays">5 days</button>
           </div>
+
             <!-- part-3-date +time + sunset sunrise time -->
             <div class="date">
               <div class="date-day">8<sup>th</sup> Sat</div>
@@ -76,10 +79,10 @@
             <div class="hours-wether hidden"></div>
           </div>
           <div class="fivedays-chart hidden"></div>
+
       </div>
     </section>
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.0/chart.min.js"></script>
     <script src="./index.js"></script>
   </body>
 </html>
