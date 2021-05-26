@@ -7,13 +7,13 @@ import apiService from '../js/apiService.js';
 apiService.getData('weather', 'Kiev').then(data => {
   document.querySelector('.content').insertAdjacentHTML('beforebegin', moreInfoTpl(data));
   // document.querySelector('.content').innerHTML = moreInfoTpl(data);
-  console.log(data);
+  // console.log(data);
 });
 
 apiService.getData('forecast', 'Kiev').then(data => {
   document.querySelector('.content').insertAdjacentHTML('beforebegin', moreInfoTpl(data));
   // document.querySelector('.content').innerHTML = moreInfoTpl(data);
-  console.log(data);
+  // console.log(data);
 });
 
 // apiService.getData().then(data => {
