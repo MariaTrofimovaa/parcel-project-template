@@ -26,7 +26,7 @@ apiService.getData('forecast', 'Kiev').then(data => {
 //   .catch(err => console.log(err));
 
 const urlIcon = `http://openweathermap.org/img/wn/10d@2x.png`;
-document.querySelector('.content').innerHTML = testTpl(urlIcon);
+// document.querySelector('.content').innerHTML = testTpl(urlIcon);
 // apiService.getData().then(data => {
 //   const arrMenu = Object.entries(data).map(item => ({
 //     name: item[0],
