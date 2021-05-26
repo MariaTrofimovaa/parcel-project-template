@@ -10,6 +10,8 @@
       integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
   </head>
   <body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
@@ -31,12 +33,8 @@
           <!-- <input class="star" type="checkbox" /> -->
         </form>
 
-        <button class="favorite-btn button" type="button">
-          <svg class="" width="10" height="10">
-            <use href=""></use>
-          </svg>
-        </button>
-      </div>
+
+
 
       <div class="favorite-box">
         <ul class="city-list"></ul>
@@ -54,18 +52,34 @@
             <button data-action="today">today</button>
             <button data-action="fiveDays">5 days</button>
           </div>
-          <div class="date-quote">
+
             <!-- part-3-date +time + sunset sunrise time -->
-          </div>
-          <div class="fivedays-weather hidden">
-            <div class="hours-wether hidden">
+            <div class="date">
+              <div class="date-day">8<sup>th</sup> Sat</div>
+              <div class="date-month-time">
+                <p class="date-month">June</p>
+                <p class="date-time">17:03</p>
+              </div>
+              <div class="date-sun">
+              <div class="date-sunrise">
+                <img class="date-sunrise-icon" src="./images/sunrise.svg" alt="Восход солнца" />
+                <p class="date-sunrise-time">7:00</p>
+              </div>
+              <div class="date-sunset">
+                <img class="date-sunset-icon" src="./images/sunset.svg" alt="Закат солнца" />
+                <p class="date-sunset-time">17:00</p>
+              </div>
             </div>
           </div>
-          <div class="chart-box hidden"></div>
-        </div>
-        <div class="additional-info is-hidden">
-          <ul class="more-info-list"></ul>
-        </div>
+              <div class="additional-info">
+                <p class="quote">Who cares about the clouds when we're together? Just sing a song and bring the sunny weather.</p>
+                <p class="quote-author">Dale Evans</p>
+              </div>
+          <div class="fivedays-weather hidden">
+            <div class="hours-wether hidden"></div>
+          </div>
+          <div class="fivedays-chart hidden"></div>
+
       </div>
     </section>
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
