@@ -30,6 +30,19 @@ function handleBtnlick(event) {
 // пример:
 // const apiService = new ApiService({});
 
+
+apiService.getData('weather', 'Kiev').then(data => {
+  document.querySelector('.content').insertAdjacentHTML('beforebegin', moreInfoTpl(data));
+  // document.querySelector('.content').innerHTML = moreInfoTpl(data);
+  // console.log(data);
+});
+
+apiService.getData('forecast', 'Kiev').then(data => {
+  document.querySelector('.content').insertAdjacentHTML('beforebegin', moreInfoTpl(data));
+  // document.querySelector('.content').innerHTML = moreInfoTpl(data);
+  // console.log(data);
+});
+
 // apiService.getData('weather', 'Kiev').then(data => {
 //   document.querySelector('.content').insertAdjacentHTML('beforebegin', moreInfoTpl(data));
 //   // document.querySelector('.content').innerHTML = moreInfoTpl(data);
@@ -41,6 +54,7 @@ function handleBtnlick(event) {
 //   // document.querySelector('.content').innerHTML = moreInfoTpl(data);
 //   console.log(data);
 // });
+
 
 // apiService.getData().then(data => {
 //   const arrMenu = Object.entries(data).map(item => ({

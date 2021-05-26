@@ -9,4 +9,5 @@ import './js/moreInfo.js';
 import './js/oneDay.js';
 import './js/threeHours.js';
 
+import './js/base/use.js';
 import './js/test.js';

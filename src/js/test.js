@@ -4,16 +4,15 @@ import apiService from '../js/apiService.js';
 // пример:
 
 apiService.getData('weather', 'Kiev').then(data => {
-  document.querySelector('.content').insertAdjacentHTML('beforebegin', testTpl(data));
-  // document.querySelector('.content').innerHTML = moreInfoTpl(data);
-  console.log(data);
+  // document.querySelector('.content').insertAdjacentHTML('beforebegin', testTpl(data));
+  // console.log(data);
 });
 
 apiService.getData('forecast', 'Kiev').then(data => {
-  document.querySelector('.content').insertAdjacentHTML('beforebegin', testTpl(data));
-  // document.querySelector('.content').innerHTML = moreInfoTpl(data);
-  console.log(data);
+  // document.querySelector('.content').insertAdjacentHTML('beforebegin', testTpl(data));
+  // console.log(data);
 });
+
 // console.log(apiService);
 // apiService
 //   .getIcon()
@@ -35,3 +34,4 @@ const urlIcon = `http://openweathermap.org/img/wn/10d@2x.png`;
 //   }));
 //   document.querySelector('.content').innerHTML = moreInfoTpl(arrMenu);
 // });
+

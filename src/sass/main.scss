@@ -1,30 +1,16 @@
-/*
- * Главный файл стилей.
- * Все паршалы подключаются сюда.
- */
+@import './utils/variables';
+@import './utils/visually-hidden';
 
-// Стили для файла с примером HTML-фрагмента
-// @import './example';
-
-
-@import './components/date';
 @import './base/common';
-
-@import './components/section';
 @import './base/container';
 
-@import './base/header';
-
-@import './utils/oneDay';
-
-@import './components/date';
 
 @import './components/background';
+@import './components/date';
+@import './components/section';
 
+@import './base/header';
+@import './utils/oneDay';
 @import './components/more-info';
-
-
-
 @import './components/chart';
-
 
