@@ -9,7 +9,6 @@ const ctx = document.querySelector('.js-chart').getContext('2d');
 // document.querySelector('.content').innerHTML = chartTpl();
 // console.log(chartTpl());
 
-
 new Chart(ctx, {
   type: 'line',
   data: {
