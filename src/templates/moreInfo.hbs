@@ -1,9 +1,26 @@
+
 <!-- пример: -->
-<p>
+{{!-- <p>
     Hello
 </p>
 
 <p>
     {{main.temp_min}}
-</p>
+</p> --}}
  
+
+
+{{#each this}}
+<li class="more-info">
+    <span class="more-info-time">{{time}}</span>
+    <img  class="more-info-temp-icon" src="{{icon}}" alt="{{iconDescription}}">
+    <span class="more-info-temp">{{temp}} &#176;</span>
+    <ul class="more-info-data">
+        <li class="more-info-pressure">{{pressure}} mm</li>
+        <li class="more-info-humidity">{{humidity}}%</li>
+        <li class="more-info-wind">{{speed}} m/s</li>
+    </ul>
+</li>
+{{/each}}
+
+

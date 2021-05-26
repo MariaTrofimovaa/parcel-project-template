@@ -3,14 +3,17 @@ import config from '../config.json';
 class ApiService {
   constructor() {
     this.requestUrl = config.url;
-    // this.urlIcon = config.urlIcon;
+    this.urlIcon = config.urlIcon;
     this.key = config.apiKey;
     this.searchQuery = '';
     this.units = config.units;
     this.location = 'Kiev';
   }
 
-  // запрос на сервер
+  // ************************** Делаем запрос на сервер
+  // Метод получает параметр collection - это weather (1 день) или forecast (5 дней)
+  // позволяет получать данные на 1 или 5 дней в зависимости от параметра
+
   getData(collection) {
     const url = `${this.requestUrl}${collection}?q=${this.location}&units=${this.units}&appid=${this.key}`;
     console.log(url);
@@ -23,39 +26,12 @@ class ApiService {
     });
   }
 
-  //получает icon id как параметр
-  getIcon() {
-    const urlIcon = `${this.urlIcon}10d@2x.png`;
+  // Получаем текущую локацию после Submit или Enter
+  set query(newLocation) {
+    newLocation = this.location;
   }
-
-  //   genData {
-  //     character: (data) => {
-  //         return {
-  //             character: data.results,
-  //             // pagination: genPagination(data.info, 'character')
-  //         };
-  //     },
-
-  //     location: (data) => {
-  //         return {
-  //             location: data.results,
-  //             // pagination: genPagination(data.info, 'location')
-  //         };
-  //     },
-
-  //     episode: (data) => {
-  //         return {
-  //             episode: data.results,
-  //             pagination: genPagination(data.info, 'episode')
-  //         };
-  //     }
-  // };
 }
 
 const apiService = new ApiService({});
 
 export default apiService;
-
-// const apiService = new ApiService({});
-// apiService.getData('weather', 'Kiev');
-// export { getData };
