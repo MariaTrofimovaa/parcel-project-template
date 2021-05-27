@@ -1,6 +1,7 @@
 .show-chart-box {
   width: 280px;
   padding: 0 26px;
+  margin: 0 auto;
   @media screen and (min-width: 768px) {
     width: 608px;
     padding: 0 30px;
@@ -16,6 +17,7 @@
 .chart-box {
   width: 280px;
   padding: 16px 26px;
+  margin: 0 auto;
   background-color: rgba(16, 33, 54, 0.8);
   box-shadow: 0px 8px 43px rgba(16, 33, 54, 0.6);
   border-radius: 34px;
