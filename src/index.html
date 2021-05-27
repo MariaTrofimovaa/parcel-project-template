@@ -37,16 +37,13 @@
 
         <form class="input-form">
           <input class="search-box" type="text" placeholder="Enter the city" />
-
-          <!-- <input class="star" type="checkbox" /> -->
-        </form>
-<!--         <button class="favorite-btn" type="button"></button> -->
-
-
           <button class="favorite-btn btn " type="button">
             <img src="./images/fav-icon.png" alt="favorite-btn">
           </button>
+          <!-- <input class="star" type="checkbox" /> -->
         </form>
+
+<!--         <button class="favorite-btn" type="button"></button> -->
 
       </div>
 
@@ -63,17 +60,19 @@
         <div class="weather-box">
           <div class="one-day"></div>
           <div class="button-box">
-            <button data-action="today">today</button>
-            <button data-action="fiveDays">5 days</button>
+            <button data-action="today" class="one-day-btn button">today</button>
+            <button data-action="fiveDays" class="five-day-btn button">5 days</button>
           </div>
 
-            <div class="date">
-            <!-- <div class="date-day">8<sup>th</sup> Sat</div>
-              <div class="date-month-time">
-                <p class="date-month">June</p>
-                <p class="date-time">17:03</p>
-              </div>
-              <div class="date-sun">
+
+          <div class="date">
+            <div class="date-day">8<sup>th</sup> Sat</div>
+            <div class="date-month-time">
+              <p class="date-month">June</p>
+              <p class="date-time">17:03</p>
+            </div>
+            <div class="date-sun">
+
               <div class="date-sunrise">
                 <img class="date-sunrise-icon" src="./images/sunrise.svg" alt="Восход солнца" />
                 <p class="date-sunrise-time">7:00</p>
@@ -82,7 +81,7 @@
                 <img class="date-sunset-icon" src="./images/sunset.svg" alt="Закат солнца" />
                 <p class="date-sunset-time">17:00</p>
               </div>
-            </div> -->
+            </div>
           </div>
 
           <div class="additional-info">
@@ -93,11 +92,25 @@
             <p class="quote-author">Dale Evans</p>
           </div>
           <div class="more-info-weather">
-            <div class="fivedays-weather visually-hidden"></div>
+
+            <div class="fivedays-weather"></div>
+
+<!--             <div class="fivedays-weather visually-hidden"></div> -->
+
             <div class="hours-wether visually-hidden">
               <ul class="more-info list"></ul>
             </div>
           </div>
+
+<!--           <ul class="show-chart-list">
+            <li class="show-chart-item">
+              <a class="show-chart-link">Show Chart</a>
+            </li>
+            <li class="show-chart-item">
+              <a class="arroy-down"><img src="./images/arrowDown.png" alt="СтрелкаВниз" /></a>
+            </li>
+          </ul> -->
+
           <div class="fivedays-chart visually-hidden"></div>
         </div>
       </div>

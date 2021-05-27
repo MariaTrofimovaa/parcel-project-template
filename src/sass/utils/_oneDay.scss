@@ -1,10 +1,11 @@
-.temperature {
+.one-day {
   color: #fff;
   background-color: #102136;
   width: 100%;
   padding: 30px 56px;
   border-radius: 34px;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .city-title,
@@ -25,7 +26,9 @@
 }
 
 .min-temperature {
-  margin-right: 20px;
+  border-right: 1px solid #27384a;
+  margin-right: 10px;
+  padding-right: 10px;
 }
 
 .temperature-item {
@@ -82,4 +85,67 @@
   padding: 6px 36px;
   border-radius: 20px;
   border: none;
+
+  margin-bottom: 30px;
+}
+
+.picture {
+  display: inline-block;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+}
+
+.fivedays-weather {
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+
+  width: 280px;
+  background: rgba(16, 33, 54, 0.8);
+  box-shadow: 0px 5px 33px rgba(16, 33, 54, 0.6);
+  border-radius: 34px;
+}
+
+.five-days-weather-list {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.arrow {
+  display: flex;
+}
+
+.show-chart-list {
+  display: flex;
+}
+
+.five-days-weather-title {
+  text-align: center;
+}
+
+.show-chart-list {
+  text-align: center;
+}
+
+.arrow-item {
+  cursor: pointer;
+}
+
+.arrow-item-left {
+}
+
+.arrow-item-right {
+  opacity: 0.5;
+}
+
+.arrow-item:hover,
+.arrow-item:focus {
+  opacity: 1;
+}
+
+.arrow-item-left:hover,
+.arrow-item-left:focus {
+  opacity: 2;
 }
