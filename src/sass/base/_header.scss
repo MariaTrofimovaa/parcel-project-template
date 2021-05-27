@@ -4,60 +4,85 @@
 }
 
 .input-form {
-    position: relative;
-}
-
-.search-box {
-
-    background-color: rgba(255, 255, 255, 0.555);
-    padding: 14px 24px;
-    position: relative;
-    align-items: center;
-    border-radius: 30px;
+  background-color: white;
+  padding: 14px 24px;
+  position: relative;
+  align-items: center;
+  border-radius: 30px;
+  //   border: 1px solid $main-white-color;
     margin-bottom: 14px;
 
+  &::before {
+    content: '';
+    display: inline-block;
+    top: 25%;
+    background: url(../images/icon-location.png) no-repeat center;
+    opacity: 0.3;
+    background-size: contain;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+  }
+
+  .search-box {
     border: none;
-    padding-left: 22%;
+    padding: 0;
+    padding-left: 34px;
     color: black;
     font-size: 14px;
     font-weight: 400;
-    width: 100%;
-    max-width: 320px;
+    width: 75%;
     outline: none;
 
     &::placeholder {
       color: black;
       font-size: 14px;
     }
-}
+  }
 
-.location-btn {
+  .btn {
+    fill: #000000;
     position: absolute;
-    top: 5.7%;
-    right: 80%;
-    // opacity: 0.971;
+    top: 50%;
+    right: 22px;
+    transform: translateY(-50%);
+    opacity: 0.471;
     border: none;
-    width: 22px;
-    height: 22px;
-    background-color: black;
+    width: 20px;
+    height: 20px;
     outline: none;
     border-radius: 50%;
     cursor: pointer;
     padding: 0;
+    transition: fill 200ms linear;
+    background: url(../images/icon-location.png) no-repeat center;
+  }
 
 }
 
-.favorite-btn {
-    position: absolute;
-    top: 5.7%;
-    right: 13%;
-    // opacity: 0.971;
-    border: none;
-    width: 22px;
-    height: 22px;
-    background-color: black;
-    outline: none;
-    border-radius: 50%;
-    cursor: pointer;
-    padding: 0;
+@media (min-width: 768px) {
+  .input-box {
+    padding-top: 60px;
+    padding-right: 134px;
+    padding-left: 134px;
+  }
+
+  .search-box {
+    font-size: 18px;
+    width: 85%;
+
+    &::placeholder {
+      font-size: 18px;
+    }
+  }
 }
+
+@media (min-width: 1280px) {
+  .input-box {
+    padding-top: 79px;
+      padding-right: 380px;
+      padding-left: 380px;
+  }
+}
+
+  
