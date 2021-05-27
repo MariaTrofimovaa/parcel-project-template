@@ -3,7 +3,7 @@ import apiService from '../js/apiService.js';
 
 apiService.getData('weather').then(data => {
   document.querySelector('.date').insertAdjacentHTML('beforeend', calendarTpl(data));
-  console.log(data);
+  // console.log(data);
 });
 
 apiService.getData('forecast').then(data1 => {

@@ -10,21 +10,10 @@ apiService.getData('weather', 'Kiev').then(data => {
 
 apiService.getData('forecast', 'Kiev').then(data => {
   // document.querySelector('.content').insertAdjacentHTML('beforebegin', testTpl(data));
-  // console.log(data);
+  console.log(data);
 });
 
-// console.log(apiService);
-// apiService
-//   .getIcon()
-//   .then(data => {
-//     console.log(data);
-//     const urlIcon = `http://openweathermap.org/img/wn/10d@2x.png`;
-//     document.querySelector('.content').innerHTML = testTpl(urlIcon);
-//     console.log(data);
-//   })
-//   .catch(err => console.log(err));
-
-const urlIcon = `http://openweathermap.org/img/wn/10d@2x.png`;
+// const urlIcon = `http://openweathermap.org/img/wn/10d@2x.png`;
 // document.querySelector('.content').innerHTML = testTpl(urlIcon);
 // apiService.getData().then(data => {
 //   const arrMenu = Object.entries(data).map(item => ({
@@ -34,4 +23,3 @@ const urlIcon = `http://openweathermap.org/img/wn/10d@2x.png`;
 //   }));
 //   document.querySelector('.content').innerHTML = moreInfoTpl(arrMenu);
 // });
-
