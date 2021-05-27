@@ -3,11 +3,11 @@ import config from '../config.json';
 class ApiService {
   constructor() {
     this.requestUrl = config.url;
-    this.urlIcon = config.urlIcon;
     this.key = config.apiKey;
     this.searchQuery = '';
     this.units = config.units;
     this.location = 'Kiev';
+    this.metric = config.metric;
   }
 
   // ************************** Делаем запрос на сервер
@@ -16,7 +16,7 @@ class ApiService {
 
   getData(collection) {
     const url = `${this.requestUrl}${collection}?q=${this.location}&units=${this.units}&appid=${this.key}`;
-    console.log(url);
+    // console.log(url);
 
     return fetch(url).then(res => {
       if (res.ok) {

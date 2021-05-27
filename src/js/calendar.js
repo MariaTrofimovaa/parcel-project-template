@@ -4,6 +4,10 @@ import sunriseIcon from '../images/sunrise.svg';
 import sunsetIcon from '../images/sunset.svg';
 
 apiService.getData('weather').then(data => {
+
+//   document.querySelector('.date').insertAdjacentHTML('beforeend', calendarTpl(data));
+  // console.log(data);
+
   const config = {
     sunriseIcon,
     sunsetIcon,
@@ -18,6 +22,7 @@ apiService.getData('weather').then(data => {
   };
   document.querySelector('.date').insertAdjacentHTML('beforeend', calendarTpl(config));
   console.log(config);
+
 });
 
 // apiService.getData('forecast').then(data1 => {
