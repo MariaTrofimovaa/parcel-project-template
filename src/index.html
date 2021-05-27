@@ -25,33 +25,38 @@
 
     <section class="container">
       <div class="input-box">
-        <button class="location-btn button" type="button">
+        <!-- <button class="location-btn button" type="button">
           <svg class="" width="10" height="10">
             <use href=""></use>
           </svg>
-        </button>
+        </button> -->
 
         <form class="input-form">
           <input class="search-box" type="text" placeholder="Enter the city" />
-          <!-- <input class="star" type="checkbox" /> -->
-        </form>
 
-        <div class="favorite-box">
-          <ul class="city-list"></ul>
-          <button class="fav-btn">
-            <svg width="10" height="10">
-              <use href=""></use>
-            </svg>
+          <button class="favorite-btn btn " type="button">
+            <img src="./images/fav-icon.png" alt="favorite-btn">
           </button>
-        </div>
+        </form>
+      </div>
 
-        <div class="content">
-          <div class="weather-box">
-            <div class="one-day"></div>
-            <div class="button-box">
-              <button data-action="today">today</button>
-              <button data-action="fiveDays">5 days</button>
-            </div>
+      <div class="favorite-box">
+        <ul class="city-list"></ul>
+        <button class="fav-btn">
+          <svg width="10" height="10">
+            <use href=""></use>
+          </svg>
+        </button>
+      </div>
+
+      <div class="content">
+        <div class="weather-box">
+          <div class="one-day"></div>
+          <div class="button-box">
+            <button data-action="today">today</button>
+            <button data-action="fiveDays">5 days</button>
+          </div>
+
             <div class="date">
             <!-- <div class="date-day">8<sup>th</sup> Sat</div>
               <div class="date-month-time">
