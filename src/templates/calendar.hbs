@@ -1,24 +1,19 @@
-              <div class="date-day">{{daily.dt}}</div> 
+
+               <div class="date-day">{{daily.dt}}</div> 
               <div class="date-month-time">
                 <p class="date-month">{{month}}</p>
                 <p class="date-time">{{time}}</p>
               </div>
               <div class="date-sun">
                 <div class="date-sunrise">
-                  <img
-                    class="date-sunrise-icon"
-                    src="#" 
-                    alt="Восход солнца"
-                  />
-                  <p class="date-sunrise-time">{{sys.sunrise}}</p>
+                  <img src="{{sunriseIcon}}" alt="коко" class="date-sunrise-icon">
+                  <p class="date-sunrise-time">{{sunriseTime}}</p>
                 </div>
                 <div class="date-sunset">
-                  <img
-                    class="date-sunset-icon"
-                    src="#"
-                    alt="Закат солнца"
-                  />
-                  <p class="date-sunset-time">{{sys.sunset}}</p>
+                  <img src="{{sunsetIcon}}" alt="шанель" class="date-sunset-icon">
+                  <p class="date-sunset-time">{{sunsetTime}}</p>
                 </div>
 
 
+{{!-- class="date-sunrise-icon"
+class="date-sunset-icon" --}}
