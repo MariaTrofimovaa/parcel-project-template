@@ -1,7 +1,7 @@
 import moreInfoTpl from '../templates/moreInfo.hbs';
 import apiService from './apiService.js';
 
-// import refs from '../refs';
+import refs from '../refs';
 
 // let moreInfoData = {};
 
