@@ -3,7 +3,7 @@ import apiService from '../js/apiService.js';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
-document.querySelector('.chart-box').insertAdjacentHTML('beforeend', chartTpl());
+document.querySelector('.fivedays-chart').insertAdjacentHTML('beforeend', chartTpl());
 const ctx = document.querySelector('.js-chart').getContext('2d');
 
 // document.querySelector('.content').innerHTML = chartTpl();
@@ -21,7 +21,6 @@ new Chart(ctx, {
         backgroundColor: '#FF6B09',
         borderColor: '#FF6B09',
         borderWidth: 1,
-        fill: false,
       },
       {
         label: '— Humidity, % ',
@@ -30,16 +29,14 @@ new Chart(ctx, {
         backgroundColor: '#0906EB',
         borderColor: '#0906EB',
         borderWidth: 1,
-        fill: false,
       },
       {
-        label: 'Humidity',
+        label: '— Wind Speed, m/s ',
         data: [2.1, 2.7, 2.3, 2.8, 2.2, 2.0],
-        //         data: chartData.humidity,
+        //         data: chartData.speed,
         backgroundColor: '#EA9A05',
         borderColor: '#EA9A05',
         borderWidth: 1,
-        fill: false,
       },
       {
         label: '— Atmosphere Pressure, m/m',
@@ -48,7 +45,6 @@ new Chart(ctx, {
         backgroundColor: '#067806',
         borderColor: '#067806',
         borderWidth: 1,
-        fill: false,
       },
     ],
   },
@@ -94,5 +90,7 @@ new Chart(ctx, {
         },
       ],
     },
+    responsive: true,
+    maintainAspectRatio: false,
   },
 });
