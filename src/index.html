@@ -10,8 +10,11 @@
       integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
@@ -22,17 +25,29 @@
 
     <section class="container">
       <div class="input-box">
-        <button class="location-btn" type="button">
+
+<!--         <button class="location-btn" type="button"> -->
+
+        <!-- <button class="location-btn button" type="button">
+
           <svg class="" width="10" height="10">
             <use href=""></use>
           </svg>
-        </button>
+        </button> -->
 
         <form class="input-form">
           <input class="search-box" type="text" placeholder="Enter the city" />
+
           <!-- <input class="star" type="checkbox" /> -->
         </form>
-        <button class="favorite-btn" type="button"></button>
+<!--         <button class="favorite-btn" type="button"></button> -->
+
+
+          <button class="favorite-btn btn " type="button">
+            <img src="./images/fav-icon.png" alt="favorite-btn">
+          </button>
+        </form>
+
       </div>
 
       <div class="favorite-box">
@@ -53,7 +68,7 @@
           </div>
 
             <div class="date">
-              <div class="date-day">8<sup>th</sup> Sat</div>
+            <!-- <div class="date-day">8<sup>th</sup> Sat</div>
               <div class="date-month-time">
                 <p class="date-month">June</p>
                 <p class="date-time">17:03</p>
@@ -67,21 +82,24 @@
                 <img class="date-sunset-icon" src="./images/sunset.svg" alt="Закат солнца" />
                 <p class="date-sunset-time">17:00</p>
               </div>
+            </div> -->
+          </div>
+
+          <div class="additional-info">
+            <p class="quote">
+              Who cares about the clouds when we're together? Just sing a song and bring the sunny
+              weather.
+            </p>
+            <p class="quote-author">Dale Evans</p>
+          </div>
+          <div class="more-info-weather">
+            <div class="fivedays-weather visually-hidden"></div>
+            <div class="hours-wether visually-hidden">
+              <ul class="more-info list"></ul>
             </div>
           </div>
-              <div class="additional-info">
-                <p class="quote">Who cares about the clouds when we're together? Just sing a song and bring the sunny weather.</p>
-                <p class="quote-author">Dale Evans</p>
-              </div>
-              <div class='more-info-weather'>
-                <div class="fivedays-weather visually-hidden"></div>
-                <div class="hours-wether visually-hidden">
-                  <ul class='more-info list'>
-                  </ul>
-                </div>
-              </div>  
-              <div class="fivedays-chart visually-hidden"></div>
-          </div>
+          <div class="fivedays-chart visually-hidden"></div>
+        </div>
       </div>
     </section>
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
