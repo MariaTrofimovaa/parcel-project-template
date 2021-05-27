@@ -1,23 +1,21 @@
-<h2 class='five-days-weather-title'>{{name}}, {{country}}</h2>
+<h2 class='five-days-weather-title'>{{city.name}}, {{city.country}}</h2>
 <ul class='five-days-weather-list'>
   <li class='five-days-weather-item'>
     <ul class='five-days-weather-more-list'>
       <li class='five-days-weather-more-item'>Sunday</li>
       <li class='five-days-weather-more-item'>09 Feb</li>
       <li class='five-days-weather-more-item'>
-        <svg>
-          <use href=''></use>
-        </svg>
+        <img src='{{icon}}' alt='' class='picture' />
       </li>
       <li class='five-days-weather-more-item'>
         <ul class='nim-max-temperature'>
           <li class='min-temperature'>
             <p class='min-temperature-item'>min</p>
-            {{temp_min}}
+            {{main.temp_min}}
           </li>
           <li class='max-temperature'>
             <p class='max-temperature-item'>max</p>
-            {{temp_max}}
+            {{main.temp_max}}
           </li>
         </ul>
       </li>
@@ -29,19 +27,17 @@
       <li class='five-days-weather-more-item'>Sunday</li>
       <li class='five-days-weather-more-item'>09 Feb</li>
       <li class='five-days-weather-more-item'>
-        <svg>
-          <use href=''></use>
-        </svg>
+        <img src='{{icon}}' alt='' class='picture' />
       </li>
       <li class='five-days-weather-more-item'>
         <ul class='nim-max-temperature'>
           <li class='min-temperature'>
             <p class='min-temperature-item'>min</p>
-            {{temp_min}}
+            {{main.temp_min}}
           </li>
           <li class='max-temperature'>
             <p class='max-temperature-item'>max</p>
-            {{temp_max}}
+            {{main.temp_max}}
           </li>
         </ul>
       </li>
@@ -53,19 +49,17 @@
       <li class='five-days-weather-more-item'>Sunday</li>
       <li class='five-days-weather-more-item'>09 Feb</li>
       <li class='five-days-weather-more-item'>
-        <svg>
-          <use href=''></use>
-        </svg>
+        <img src='{{icon}}' alt='' class='picture' />
       </li>
       <li class='five-days-weather-more-item'>
         <ul class='nim-max-temperature'>
           <li class='min-temperature'>
             <p class='min-temperature-item'>min</p>
-            {{temp_min}}
+            {{main.temp_min}}
           </li>
           <li class='max-temperature'>
             <p class='max-temperature-item'>max</p>
-            {{temp_max}}
+            {{main.temp_max}}
           </li>
         </ul>
       </li>
@@ -77,19 +71,17 @@
       <li class='five-days-weather-more-item'>Sunday</li>
       <li class='five-days-weather-more-item'>09 Feb</li>
       <li class='five-days-weather-more-item'>
-        <svg>
-          <use href=''></use>
-        </svg>
+        <img src='{{icon}}' alt='' class='picture' />
       </li>
       <li class='five-days-weather-more-item'>
         <ul class='nim-max-temperature'>
           <li class='min-temperature'>
             <p class='min-temperature-item'>min</p>
-            {{temp_min}}
+            {{main.temp_min}}
           </li>
           <li class='max-temperature'>
             <p class='max-temperature-item'>max</p>
-            {{temp_max}}
+            {{main.temp_max}}
           </li>
         </ul>
       </li>
@@ -101,19 +93,17 @@
       <li class='five-days-weather-more-item'>Sunday</li>
       <li class='five-days-weather-more-item'>09 Feb</li>
       <li class='five-days-weather-more-item'>
-        <svg>
-          <use href=''></use>
-        </svg>
+        <img src='{{icon}}' alt='' class='picture' />
       </li>
       <li class='five-days-weather-more-item'>
         <ul class='nim-max-temperature'>
           <li class='min-temperature'>
             <p class='min-temperature-item'>min</p>
-            {{temp_min}}
+            {{main.temp_min}}
           </li>
           <li class='max-temperature'>
             <p class='max-temperature-item'>max</p>
-            {{temp_max}}
+            {{main.temp_max}}
           </li>
         </ul>
       </li>
@@ -122,19 +112,16 @@
   </li>
 </ul>
 <ul class='arrow'>
-  <li class='arrow-item'>
-    <img src='#' alt='СтрелкаВлево' />
+  <li class='arrow-item arrow-item-left'>
+    {{! <svg width='30' height='30'>
+      <use href='../images/arrowLeft.svg'></use>
+    </svg> }}
+    <img src='{{arrowLeft}}' alt='' />
   </li>
-  <li class='arrow-item'>
-    <img src='#' alt='СтрелкаВправо' />
-  </li>
-</ul>
-
-<ul class='show-chart-list'>
-  <li class='show-chart-item'>
-    <a class='show-chart-link'>Show Chart</a>
-  </li>
-  <li class='show-chart-item'>
-    <a class='arroy-down'><img src='../images/arrowDown.png' alt='СтрелкаВниз' /></a>
+  <li class='arrow-item arrow-item-right'>
+    {{!-- <svg width='30' height='30'>
+      <use href='{{arrowRight}}'></use>
+    </svg> --}}
+    <img src='{{arrowRight}}' alt='' />
   </li>
 </ul>
