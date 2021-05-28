@@ -1,6 +1,8 @@
 import chartTpl from '../templates/chart.hbs';
 import apiService from '../js/apiService.js';
 import { Chart, registerables } from 'chart.js';
+import { fiveDaysData } from './base/helper.js';
+
 Chart.register(...registerables);
 
 document.querySelector('.fivedays-chart').insertAdjacentHTML('beforeend', chartTpl());
