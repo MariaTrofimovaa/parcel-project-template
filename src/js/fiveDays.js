@@ -17,5 +17,12 @@ apiService.getData('forecast').then(data => {
     icon: `http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`,
   };
   document.querySelector('.fivedays-weather').innerHTML = fiveDaysTpl(tplDate);
-  console.log(data);
+  // console.log(data);
 });
+
+// Рендерим данные за 5 дней (перенести в файл fiveDays) - Руслан
+// const fiveDays = document.querySelector('.fivedays-weather'); // вынести в рефы
+
+// renderFiveDays = () => {
+//   fiveDays.innerHTML = ;
+// };
