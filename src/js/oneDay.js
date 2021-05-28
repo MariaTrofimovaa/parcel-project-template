@@ -11,7 +11,7 @@ apiService.getData('weather').then(data => {
     icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
   };
   document.querySelector('.one-day').innerHTML = oneDayTpl(tplDate);
-  console.log(data);
+  // console.log(data);
 });
 
 // const renderOneDay = data => {

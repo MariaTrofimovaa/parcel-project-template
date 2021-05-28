@@ -1,13 +1,17 @@
 import config from '../config.json';
 
 class ApiService {
-  constructor() {
+  constructor(dt) {
     this.requestUrl = config.url;
+    this.requestUrlOneCall = config.urlOneCall;
     this.key = config.apiKey;
     this.searchQuery = '';
     this.units = config.units;
     this.location = 'Kiev';
     this.metric = config.metric;
+    this.time = config.dt;
+    this.lat = config.lat;
+    this.lon = config.lon;
   }
 
   // ************************** Делаем запрос на сервер
@@ -19,6 +23,20 @@ class ApiService {
     // console.log(url);
 
     return fetch(url).then(res => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject('Something went wrong');
+    });
+  }
+
+  // Получаем данные за 5 дней. Точка отсчета 27.05.21, локация - Киев
+  getFiveDayData() {
+    const urlOneCall = `${this.requestUrlOneCall}?lat=${this.lat}&lon=${this.lon}&dt=${this.time}&appid=${this.key}`;
+
+    console.log(urlOneCall);
+
+    return fetch(urlOneCall).then(res => {
       if (res.ok) {
         return res.json();
       }
