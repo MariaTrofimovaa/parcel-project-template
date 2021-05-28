@@ -95,6 +95,7 @@ const renderFiveDays = () => {
 renderFiveDays();
 apiService.getFiveDayData();
 
+
 // Делаем запрос на сервер и получаем данные для more info
 // const getMoreInfoData = () => {
 //   return apiService
@@ -114,4 +115,3 @@ apiService.getFiveDayData();
 // };
 
 // getChartData();
-

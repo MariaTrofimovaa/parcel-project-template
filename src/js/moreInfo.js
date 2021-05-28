@@ -1,10 +1,18 @@
 import moreInfoTpl from '../templates/moreInfo.hbs';
 import apiService from './apiService.js';
-// import config from '../config.json';
-
+import helper from './base/helper.js';
 // import refs from '../refs';
 
 let moreInfoData = {};
+
+const getMoreInfoData = () => {
+  return apiService
+    .getData('forecast')
+    .then(data => renderFiveDays(data))
+    .catch(err => console.log(err));
+};
+
+getMoreInfoData();
 
 const renderMoreInfo = target => {
   // moreInfoData = api.getData();
