@@ -4,6 +4,14 @@ import { fiveDaysData } from './base/helper.js';
 // import refs from '../refs';
 // fiveDaysData; // достаем массив
 
+
+const hoursWeather = document.querySelector('.hours-weather');
+const moreInfoList = document.querySelector('.more-info-list');
+const openMoreInfoBtn = document.querySelector('.show-more-info');
+const fiveDaysWeather = document.querySelector('.fivedays-weather');
+
+let moreInfoData = {};
+
 /* 
 
 Повесить обраб событий на юл
@@ -17,8 +25,6 @@ import { fiveDaysData } from './base/helper.js';
 
 */
 
-// let moreInfoData = {};
-
 // const getMoreInfoData = () => {
 //   return apiService
 //     .getData('forecast')
@@ -28,9 +34,44 @@ import { fiveDaysData } from './base/helper.js';
 
 // getMoreInfoData();
 
+const getMoreInfoData = event => {
+  apiService.getData('forecast').then(({ list }) => {
+    const moreDaysData = list.map(hourData => ({
+      temp: Math.round(hourData.main.temp),
+      pressure: hourData.main.pressure,
+      windSpeed: hourData.wind.speed,
+      humidity: hourData.main.humidity,
+      icon: `http://openweathermap.org/img/wn/${hourData.weather[0].icon}@2x.png`,
+      // dt: ConverterToDate(hourData.dt),
+      // hour: ConverterToHour(hourData.dt),
+    }));
+
+    renderMoreInfoData(moreDaysData);
+  });
+};
+ getMoreInfoData();
+openMoreInfoBtn.addEventListener('click', getMoreInfoData);
+
+function renderMoreInfoData(moreDaysData) {
+  hoursWeather.classList.remove('.visually-hidden');
+  // if (moreInfoList) {
+  //   moreInfoList.forEach(e => e.remove());
+  // }
+  console.log(moreDaysData);
+  moreInfoList.innerHTML = moreInfoTpl(moreDaysData);
+}
+
+// const renderMoreInfo = target => {
+//   // moreInfoData = apiService.getData('forecast');
+//   hoursWeather.classList.remove('.vh');
+
+
+// getMoreInfoData();
+
 // const renderMoreInfo = target => {
 //   // moreInfoData = api.getData();
 //   document.querySelector('.additional-info').classList.remove('isHiden');
+
 //   // const day = Number(target.dataset.day);
 //   const moreDaysListItem = document.querySelectorAll('.more-info');
 //   if (moreDaysListItem) {
@@ -48,3 +89,4 @@ import { fiveDaysData } from './base/helper.js';
 //     renderMoreInfo(target);
 //   }
 // }
+
