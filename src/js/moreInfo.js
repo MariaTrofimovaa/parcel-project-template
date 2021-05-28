@@ -1,7 +1,6 @@
 import moreInfoTpl from '../templates/moreInfo.hbs';
 import apiService from './apiService.js';
 import helper from './base/helper.js';
-
 // import refs from '../refs';
 
 let moreInfoData = {};
@@ -16,9 +15,8 @@ const getMoreInfoData = () => {
 getMoreInfoData();
 
 const renderMoreInfo = target => {
-  // moreInfoData = apiService.getData('forecast');
-  // console.log(moreInfoData);
-  document.querySelector('.hours-wether').classList.remove('.visually-hidden');
+  // moreInfoData = api.getData();
+  document.querySelector('.additional-info').classList.remove('isHiden');
   // const day = Number(target.dataset.day);
   const moreDaysListItem = document.querySelectorAll('.more-info');
   if (moreDaysListItem) {
@@ -28,7 +26,7 @@ const renderMoreInfo = target => {
   refs.moreInfoBlock.innerHTML += moreInfoTemp(currentMoreInfo.forecast);
 };
 
-document.querySelector('.more-info-weather').addEventListener('click', handleBtnlick);
+document.querySelector('.fivedays-weather').addEventListener('click', handleBtnlick);
 
 function handleBtnlick(event) {
   event.preventDefault();

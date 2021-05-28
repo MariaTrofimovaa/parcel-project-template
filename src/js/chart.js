@@ -6,13 +6,11 @@ Chart.register(...registerables);
 document.querySelector('.fivedays-chart').insertAdjacentHTML('beforeend', chartTpl());
 const ctx = document.querySelector('.js-chart').getContext('2d');
 
-// document.querySelector('.content').innerHTML = chartTpl();
-// console.log(chartTpl());
-
 new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ['завтра', 'послезавтра', 'через 2 дня', 'через 3 дня', 'через 4 дня'],
+    labels: ['сегодня', 'завтра', 'послезавтра', 'через 2 дня', 'через 3 дня'],
+
     datasets: [
       {
         label: '— Temperature, C° ',
@@ -49,11 +47,6 @@ new Chart(ctx, {
     ],
   },
   options: {
-    title: {
-      display: true,
-      text: 'Value of indicators',
-      position: 'left',
-    },
     legend: {
       display: true,
       align: 'start',
@@ -62,33 +55,32 @@ new Chart(ctx, {
         boxWidth: 13,
         boxHeight: 12,
         defaultFontColor: 'rgb(5, 120, 6)',
-        padding: 10,
       },
     },
 
     scales: {
-      xAxes: [
-        {
-          gridLines: {
-            color: 'rgba(255, 255, 255, 0.54)',
-          },
+      x: {
+        grid: {
+          color: 'rgba(255, 255, 255, 0.54)',
+
           ticks: {
             padding: 20,
           },
         },
-      ],
-      yAxes: [
-        {
-          gridLines: {
-            color: 'rgba(255, 255, 255, 0.54)',
-            stepSize: 0.5,
-            zeroLineColor: 'rgba(255, 255, 255, 0.54)',
-          },
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Value of indicators',
+        },
+        grid: {
+          color: 'rgba(255, 255, 255, 0.54)',
+
           ticks: {
-            padding: 18,
+            padding: 20,
           },
         },
-      ],
+      },
     },
     responsive: true,
     maintainAspectRatio: false,
