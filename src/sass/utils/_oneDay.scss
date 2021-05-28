@@ -1,4 +1,6 @@
 .one-day {
+  width: 280px;
+  margin-top: 45px;
   color: #fff;
   background-color: #102136;
   width: 100%;
@@ -6,6 +8,10 @@
   border-radius: 34px;
   text-align: center;
   margin-bottom: 30px;
+}
+
+.five-days-weather-more-item {
+  opacity: 0.55;
 }
 
 .city-title,
@@ -74,6 +80,17 @@
   margin-right: 14px;
 }
 
+.one-day-btn.button:hover,
+.one-day-btn.button:focus,
+.five-day-btn.button:hover,
+.five-day-btn.button:hover {
+  background-color: #fff;
+}
+
+.button-box {
+  text-align: center;
+}
+
 .button {
   font-weight: bold;
   font-size: 14px;
@@ -92,8 +109,8 @@
 .picture {
   display: inline-block;
   text-align: center;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
 }
 
 .fivedays-weather {
@@ -115,6 +132,7 @@
 
 .arrow {
   display: flex;
+  margin-left: 84px;
 }
 
 .show-chart-list {
@@ -123,10 +141,28 @@
 
 .five-days-weather-title {
   text-align: center;
+  margin-bottom: 20px;
+}
+
+.five-days-weather-list {
+  text-align: center;
+}
+
+.five-days-weather-item {
+  width: 82px;
+}
+
+.five-days-weather-item:not(:last-child) {
+  margin-right: 20px;
 }
 
 .show-chart-list {
   text-align: center;
+}
+
+.five-days-weather-list:nth-child(4),
+.five-days-weather-list:last-child {
+  display: none;
 }
 
 .arrow-item {
@@ -134,6 +170,7 @@
 }
 
 .arrow-item-left {
+  margin-right: 50px;
 }
 
 .arrow-item-right {
@@ -148,4 +185,112 @@
 .arrow-item-left:hover,
 .arrow-item-left:focus {
   opacity: 2;
+}
+
+.min-temperature-item.fiveday,
+.max-temperature-item.fiveday {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 1.16;
+}
+
+.show-more-info {
+  // padding-bottom: 2px;
+  opacity: 0.3;
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .one-day {
+    width: 500px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+
+  .temperature-list {
+    display: block;
+  }
+
+  .nim-max-temperature {
+    justify-content: center;
+  }
+
+  .button {
+    margin-bottom: 40px;
+  }
+  .fivedays-weather {
+    width: 620px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  .five-days-weather-item {
+    width: 100px;
+  }
+
+  .five-days-weather-more-item {
+    margin-bottom: 10px;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .temperature-item-one {
+    font-weight: 300;
+    font-size: 90px;
+    line-height: 1.2;
+  }
+
+  .city-title {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.22;
+  }
+
+  .nim-max-temperature {
+    margin-bottom: 20px;
+  }
+
+  .min-temperature-item,
+  .min-temperature-item2,
+  .max-temperature-item,
+  .max-temperature-item2 {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.22;
+  }
+
+  .five-days-weather-title {
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 1.21;
+  }
+
+  .show-more-info {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.21;
+  }
+
+  .min-temperature-item.fiveday,
+  .max-temperature-item.fiveday {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.21;
+    color: #fff;
+  }
+
+  .five-days-weather-more-item {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.21;
+  }
+
+  .five-days-weather-more-item2 {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.22;
+  }
 }
