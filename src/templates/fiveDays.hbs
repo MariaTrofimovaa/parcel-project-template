@@ -1,9 +1,10 @@
-<h2 class='five-days-weather-title'>{{city.name}}, {{city.country}}</h2>
+<h2 class='five-days-weather-title'>{{city}}, {{country}}</h2>
 <ul class='five-days-weather-list'>
+  {{#each weatherParams}}
   <li class='five-days-weather-item'>
     <ul class='five-days-weather-more-list'>
-      <li class='five-days-weather-more-item'>Sunday</li>
-      <li class='five-days-weather-more-item2'>09 Feb</li>
+      <li class='five-days-weather-more-item'>{{dayOfWeek}}</li>
+      <li class='five-days-weather-more-item2'>{{day}} {{month}}</li>
       <li class='five-days-weather-more-item'>
         <img src='{{icon}}' alt='' class='picture' />
       </li>
@@ -11,19 +12,20 @@
         <ul class='nim-max-temperature'>
           <li class='min-temperature'>
             <p class='min-temperature-item fiveday'>min</p>
-            <p class='min-temperature-item2 fiveday'>{{main.temp_min}}</p>
+            <p class='min-temperature-item2 fiveday'>{{temp.tempMin}}</p>
           </li>
           <li class='max-temperature'>
 
             <p class='max-temperature-item fiveday'>max</p>
-            <p class='max-temperature-item2 fiveday'>{{main.temp_max}}</p>
+            <p class='max-temperature-item2 fiveday'>{{temp.tempMax}}</p>
           </li>
         </ul>
       </li>
-      <li class='five-days-weather-more-item'><a class='show-more-info'>more info</a></li>
+      <li class='five-days-weather-more-item'><a class='show-more-info' data-day='{{day}}'>more info</a></li>
     </ul>
   </li>
-  <li class='five-days-weather-item'>
+  {{/each}}
+  {{!-- <li class='five-days-weather-item'>
     <ul class='five-days-weather-more-list'>
       <li class='five-days-weather-more-item'>Sunday</li>
       <li class='five-days-weather-more-item2'>09 Feb</li>
@@ -110,7 +112,7 @@
       </li>
       <li class='five-days-weather-more-item'><a class='show-more-info'>more info</a></li>
     </ul>
-  </li>
+  </li> --}}
 </ul>
 <ul class='arrow'>
   <li class='arrow-item arrow-item-left'>

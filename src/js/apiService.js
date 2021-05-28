@@ -9,9 +9,6 @@ class ApiService {
     this.units = config.units;
     this.location = 'Kiev';
     this.metric = config.metric;
-    this.time = config.dt;
-    this.lat = config.lat;
-    this.lon = config.lon;
   }
 
   // ************************** Делаем запрос на сервер

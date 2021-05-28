@@ -1,8 +1,9 @@
 import fiveDaysTpl from '../templates/fiveDays.hbs';
 import arrowLeft from '../images/arrowLeft.png';
 import arrowRight from '../images/arrowRight.png';
-// import oneDayTpl from '../templates/fiveDays.hbs';
+// import fiveDaysTpl from '../templates/fiveDays.hbs';
 import apiService from '../js/apiService.js';
+import { renderFiveDays } from '../js/base/helper.js';
 
 // apiService.getData('forecast').then(data => {
 //   document.querySelector('.fivedays-weather').innerHTML = fiveDaysTpl(data);
@@ -10,13 +11,14 @@ import apiService from '../js/apiService.js';
 // });
 
 apiService.getData('forecast').then(data => {
+  const renderData = renderFiveDays(data);
   const tplDate = {
     arrowLeft,
     arrowRight,
-    ...data,
-    icon: `http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`,
+    ...renderData,
   };
   document.querySelector('.fivedays-weather').innerHTML = fiveDaysTpl(tplDate);
+
   // console.log(data);
 });
 
