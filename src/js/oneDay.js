@@ -27,4 +27,4 @@ apiService.getData('weather').then(data => {
 //   console.log(data);
 // };
 
-// export default renderOneDay;
+// export default {renderOneDay};
