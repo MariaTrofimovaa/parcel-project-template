@@ -10,11 +10,8 @@
       integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
   </head>
   <body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
@@ -25,27 +22,19 @@
 
     <section class="container">
       <div class="input-box">
-
-<!--         <button class="location-btn" type="button"> -->
-
-        <!-- <button class="location-btn button" type="button">
-
+        <button class="location-btn button" type="button">
           <svg class="" width="10" height="10">
             <use href=""></use>
           </svg>
-        </button> -->
+        </button>
 
         <form class="input-form">
           <input class="search-box" type="text" placeholder="Enter the city" />
-          <button class="favorite-btn btn " type="button">
-            <img src="./images/fav-icon.png" alt="favorite-btn">
-          </button>
           <!-- <input class="star" type="checkbox" /> -->
         </form>
 
-<!--         <button class="favorite-btn" type="button"></button> -->
 
-      </div>
+
 
       <div class="favorite-box">
         <ul class="city-list"></ul>
@@ -60,18 +49,18 @@
         <div class="weather-box">
           <div class="one-day"></div>
           <div class="button-box">
-            <button data-action="today" class="one-day-btn button">today</button>
-            <button data-action="fiveDays" class="five-day-btn button">5 days</button>
+            <button data-action="today">today</button>
+            <button data-action="fiveDays">5 days</button>
           </div>
 
 
-          <div class="date">
-            <!-- <div class="date-day">8<sup>th</sup> Sat</div>
-            <div class="date-month-time">
-              <p class="date-month">June</p>
-              <p class="date-time">17:03</p>
-            </div>
-            <div class="date-sun">
+            <div class="date">
+              <!-- <div class="date-day">8<sup>th</sup> Sat</div>
+              <div class="date-month-time">
+                <p class="date-month">June</p>
+                <p class="date-time">17:03</p>
+              </div>
+              <div class="date-sun">
 
               <div class="date-sunrise">
                 <img class="date-sunrise-icon" src="./images/sunrise.svg" alt="Восход солнца" />
@@ -83,24 +72,20 @@
               </div>
             </div> -->
           </div>
+              <div class="additional-info">
+                <p class="quote">Who cares about the clouds when we're together? Just sing a song and bring the sunny weather.</p>
+                <p class="quote-author">Dale Evans</p>
+              </div>
+              <div class='more-info-weather'>
+                <div class="fivedays-weather visually-hidden"></div>
+                <div class="hours-wether visually-hidden">
+                  <ul class='more-info list'>
+                  </ul>
+                </div>
+              </div>  
+<!--               <div class="fivedays-chart visually-hidden"></div> -->
+<!--           </div> -->
 
-          <div class="additional-info">
-            <p class="quote">
-              Who cares about the clouds when we're together? Just sing a song and bring the sunny
-              weather.
-            </p>
-            <p class="quote-author">Dale Evans</p>
-          </div>
-          <div class="more-info-weather">
-
-            <div class="fivedays-weather"></div>
-
-<!--             <div class="fivedays-weather visually-hidden"></div> -->
-
-            <div class="hours-wether visually-hidden">
-              <ul class="more-info list"></ul>
-            </div>
-          </div>
 
 <!--           <ul class="show-chart-list">
             <li class="show-chart-item">
@@ -113,6 +98,7 @@
 
           <div class="fivedays-chart"></div>
         </div>
+
       </div>
     </section>
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->

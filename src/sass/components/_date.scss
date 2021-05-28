@@ -45,7 +45,6 @@
   width: 1px;
   height: 20px;
   background-color: #e7e8eb;
-  margin-left: 10px;
 }
 
 .date-sun {
@@ -65,16 +64,6 @@
 .date-sunrise-time,
 .date-sunset-time {
   margin: 0;
-}
-
-.date-month,
-.date-sunrise {
-  margin-right: 10px;
-}
-
-.date-time,
-.date-sunset {
-  margin-left: 10px;
 }
 
 .date-sunrise-icon,
@@ -98,7 +87,6 @@
 
   letter-spacing: 0.04em;
 }
-
 // @media screen and (min-width: 320px);
 // @media screen and (min-width: 768px) {
 //   .date-container {
