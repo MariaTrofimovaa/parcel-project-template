@@ -2,12 +2,11 @@ import calendarTpl from '../templates/calendar.hbs';
 import apiService from '../js/apiService.js';
 import sunriseIcon from '../images/sunrise.svg';
 import sunsetIcon from '../images/sunset.svg';
-import helper from '../js/base/helper.js';
+// import helper from '../js/base/helper.js';
 // const date = document.querySelector('.date');
 // date.innerHTML = calenarTpl(weatsherParams);
 
 apiService.getData('weather').then(data => {
-
   const date = new Date();
   const day = date.getDate();
   const weekDay = new Intl.DateTimeFormat('en', { weekday: 'short' }).format(date);
@@ -45,7 +44,6 @@ apiService.getData('weather').then(data => {
       new Date(data.sys.sunset * 1000).getMinutes(),
   };
   document.querySelector('.date').insertAdjacentHTML('beforeend', calendarTpl(config));
-
 
   const dateDay = document.querySelector('.date-day');
   const currentTime = document.querySelector('.date-time');
