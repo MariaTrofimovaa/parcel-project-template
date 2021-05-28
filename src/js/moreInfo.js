@@ -1,7 +1,9 @@
 import moreInfoTpl from '../templates/moreInfo.hbs';
 import apiService from './apiService.js';
-import helper from './base/helper.js';
+import { fiveDaysData } from './base/helper.js';
 // import refs from '../refs';
+// fiveDaysData; // достаем массив
+
 
 const hoursWeather = document.querySelector('.hours-weather');
 const moreInfoList = document.querySelector('.more-info-list');
@@ -10,12 +12,26 @@ const fiveDaysWeather = document.querySelector('.fivedays-weather');
 
 let moreInfoData = {};
 
+/* 
+
+Повесить обраб событий на юл
+убедитьсяЯ, что надатие на ссылку (а)
+считываем датасетдай, чтобы получить число дня 
+ищем в массиве 5дайздата обхект, через find ищем объект чтобы data совпала с той, что достали из атрибута датасет
+берем из объекта массив кот лежит в форкаст
+
+этот массив - то , что нужно зарендерить
+мэпнуть, чтобы подготовить поля для шаблона
+
+*/
+
 // const getMoreInfoData = () => {
 //   return apiService
 //     .getData('forecast')
 //     .then(data => renderFiveDays(data))
 //     .catch(err => console.log(err));
 // };
+
 // getMoreInfoData();
 
 const getMoreInfoData = event => {
@@ -48,6 +64,14 @@ function renderMoreInfoData(moreDaysData) {
 // const renderMoreInfo = target => {
 //   // moreInfoData = apiService.getData('forecast');
 //   hoursWeather.classList.remove('.vh');
+
+
+// getMoreInfoData();
+
+// const renderMoreInfo = target => {
+//   // moreInfoData = api.getData();
+//   document.querySelector('.additional-info').classList.remove('isHiden');
+
 //   // const day = Number(target.dataset.day);
 //   const moreDaysListItem = document.querySelectorAll('.more-info');
 //   if (moreDaysListItem) {

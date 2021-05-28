@@ -4,8 +4,6 @@
     "urlIcon": "http://openweathermap.org/img/wn/",
     "apiKey": "b2e20a408d2fb97b7ae2d0be72bcb7e8",
     "units": "metric",
-    "metric": "celsius",
-    "dt": "1622062800",
-    "lon": 30.523333,
-    "lat": 50.450001
+    "metric": "celsius"
+
 }
