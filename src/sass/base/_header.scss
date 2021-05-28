@@ -57,7 +57,114 @@
     transition: fill 200ms linear;
     background: url(../images/icon-location.png) no-repeat center;
   }
+}
 
+.search-location__slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+
+  &-btnPrev,
+  &-btnNext {
+    opacity: 0.471;
+    width: 28px;
+    height: 28px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 200ms linear;
+    outline: none;
+    position: absolute;
+
+    &:hover,
+    &:hover svg {
+      opacity: 1;
+    }
+
+    & svg {
+      fill: #000000;
+      transition: opacity 200ms linear;
+      width: 80%;
+      height: 80%;
+    }
+  }
+
+  &-btnPrev {
+    left: 0;
+  }
+
+  &-btnNext {
+    right: 0;
+  }
+
+  &-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 178px;
+    height: 27px;
+  }
+
+  &-list svg {
+    display: block;
+    height: 100%;
+    width: 12px;
+    // fill: $main-white-color;
+  }
+
+  &-list-item {
+    border-radius: 12px;
+    background-color: rgb(16, 33, 54);
+    opacity: 0.471;
+    padding: 5px 5px 5px 10px;
+    transition: opacity 200ms linear;
+    width: 86px;
+  }
+
+  &-list-item:hover,
+  &-list-item:focus {
+    opacity: 1;
+  }
+
+  &-list-content {
+    display: flex;
+    // color: $main-white-color;
+    font-size: 12px;
+    justify-content: space-around;
+  }
+
+  &-list-sity {
+    cursor: pointer;
+    // font-family: $main-font;
+    font-weight: 400;
+    font-size: 12px;
+  }
+
+  &-list-sity::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    // background-color: $main-white-color;
+    margin-bottom: 1px;
+  }
+
+  &-list-content-renove-city__button {
+    background-color: transparent;
+    // background-image: url(img/icons/cross.svg);
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    outline: none;
+    padding: 0;
+  }
 }
 
 @media (min-width: 768px) {
