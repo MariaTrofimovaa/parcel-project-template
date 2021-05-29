@@ -17,7 +17,9 @@ apiService.getData('forecast').then(data => {
     arrowRight,
     ...renderData,
   };
-  document.querySelector('.fivedays-weather').innerHTML = fiveDaysTpl(tplDate);
+  document
+    .querySelector('.fivedays-weather')
+    .insertAdjacentHTML('afterbegin', fiveDaysTpl(tplDate));
 
   // console.log(data);
 });

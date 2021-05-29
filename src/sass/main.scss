@@ -5,10 +5,10 @@
 @import './base/container';
 
 @import './components/background';
-@import './components/date';
-// @import './components/section';
 
-@import './base/header';
-@import './utils/oneDay';
-@import './components/moreInfo';
-@import './components/chart';
+// @import './components/section';
+@import './layout/date';
+@import './layout/oneDay';
+@import './layout/header';
+@import './layout/moreInfo';
+@import './layout/chart';

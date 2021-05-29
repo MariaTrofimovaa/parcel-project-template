@@ -28,18 +28,18 @@ class ApiService {
   }
 
   // Получаем данные за 5 дней. Точка отсчета 27.05.21, локация - Киев
-  getFiveDayData() {
-    const urlOneCall = `${this.requestUrlOneCall}?lat=${this.lat}&lon=${this.lon}&dt=${this.time}&appid=${this.key}`;
+  // getFiveDayData() {
+  //   const urlOneCall = `${this.requestUrlOneCall}?lat=${this.lat}&lon=${this.lon}&dt=${this.time}&appid=${this.key}`;
 
-    console.log(urlOneCall);
+  //   console.log(urlOneCall);
 
-    return fetch(urlOneCall).then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject('Something went wrong');
-    });
-  }
+  //   return fetch(urlOneCall).then(res => {
+  //     if (res.ok) {
+  //       return res.json();
+  //     }
+  //     return Promise.reject('Something went wrong');
+  //   });
+  // }
 
   // Получаем текущую локацию после Submit или Enter
   set query(newLocation) {

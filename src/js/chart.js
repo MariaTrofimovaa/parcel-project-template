@@ -5,8 +5,38 @@ import { fiveDaysData } from './base/helper.js';
 
 Chart.register(...registerables);
 
-document.querySelector('.fivedays-chart').insertAdjacentHTML('beforeend', chartTpl());
+const containerChart = document.querySelector('.fivedays-chart');
+containerChart.insertAdjacentHTML('beforeend', chartTpl());
+console.log(containerChart);
+
 const ctx = document.querySelector('.js-chart').getContext('2d');
+console.log(ctx);
+
+const headerChart = document.querySelector('.chart-header');
+console.log(headerChart);
+headerChart.addEventListener('click', fetchData);
+
+function fetchData() {
+  fetchFiveDaysData().then(data => {
+    console.log(data);
+  });
+}
+
+const chartList = document.querySelector('header-list');
+console.log(chartList);
+
+// containerChart.addEventListener('click', showChart);
+// chartList.addEventListener('click', hideChart);
+
+// function showChart() {
+//   containerChart.classList.remove('visually-hidden');
+//   chartList.classList.add('visually-hidden');
+// }
+
+// function hideChart() {
+//   containerChart.classList.add('visually-hidden');
+//   chartList.classList.remove('visually-hidden');
+// }
 
 new Chart(ctx, {
   type: 'line',

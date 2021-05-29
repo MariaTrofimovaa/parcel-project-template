@@ -1,15 +1,18 @@
 import moreInfoTpl from '../templates/moreInfo.hbs';
+import fiveTpl from '../templates/fiveDays.hbs';
 import apiService from './apiService.js';
 import { fiveDaysData } from './base/helper.js';
 // import refs from '../refs';
 // fiveDaysData; // достаем массив
 
-
 const hoursWeather = document.querySelector('.hours-weather');
 const moreInfoList = document.querySelector('.more-info-list');
-const openMoreInfoBtn = document.querySelector('.show-more-info');
 const fiveDaysWeather = document.querySelector('.fivedays-weather');
+// console.log(hoursWeather);
 
+// document.querySelector('.more-info-weather').insertAdjacentHTML('beforeend', fiveTpl());
+// const openMoreInfoBtn = document.querySelector('.show-more-info');
+// console.log(openMoreInfoBtn);
 let moreInfoData = {};
 
 /* 
@@ -49,22 +52,21 @@ const getMoreInfoData = event => {
     renderMoreInfoData(moreDaysData);
   });
 };
- getMoreInfoData();
-openMoreInfoBtn.addEventListener('click', getMoreInfoData);
+getMoreInfoData();
+// openMoreInfoBtn.addEventListener('click', getMoreInfoData);
 
 function renderMoreInfoData(moreDaysData) {
   hoursWeather.classList.remove('.visually-hidden');
   // if (moreInfoList) {
   //   moreInfoList.forEach(e => e.remove());
   // }
-  console.log(moreDaysData);
+  // console.log(moreDaysData);
   moreInfoList.innerHTML = moreInfoTpl(moreDaysData);
 }
 
 // const renderMoreInfo = target => {
 //   // moreInfoData = apiService.getData('forecast');
 //   hoursWeather.classList.remove('.vh');
-
 
 // getMoreInfoData();
 
@@ -89,4 +91,3 @@ function renderMoreInfoData(moreDaysData) {
 //     renderMoreInfo(target);
 //   }
 // }
-
