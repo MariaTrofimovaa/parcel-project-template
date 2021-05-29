@@ -1,6 +1,7 @@
 import moreInfoTpl from '../templates/moreInfo.hbs';
+import fiveDaysTpl from '../templates/fiveDays.hbs';
 import apiService from './apiService.js';
-import { fiveDaysData } from './base/helper.js';
+import {renderFiveDays, fiveDaysData} from './base/helper.js';
 // import refs from '../refs';
 // fiveDaysData; // достаем массив
 
@@ -25,42 +26,68 @@ let moreInfoData = {};
 
 */
 
-// const getMoreInfoData = () => {
-//   return apiService
-//     .getData('forecast')
-//     .then(data => renderFiveDays(data))
-//     .catch(err => console.log(err));
-// };
-
-// getMoreInfoData();
-
 const getMoreInfoData = event => {
   apiService.getData('forecast').then(({ list }) => {
+
+    // const oneDayArr = list.map(element => element.dt);
+    // console.log(oneDayArr);
+    
+    // const dataUnique = oneDayArr.filter((elm, index, arr) => arr.indexOf(elm) === index);
+    // if (dataUnique.length > 5) {
+    // // fiveDays = fiveDays.slice(1);
+    // dataUnique.shift();
+    // }
+    // console.log(dataUnique);
+
+    //  const fiveDays = dataUnique.map(data =>
+    // //   allDaysArr.filter(obj => new Date(obj.dt * 1000).getDate() === data),
+
+    // allDaysArr.filter(obj => obj.dt_txt.slice(0, 10) === data),
+  // );
+    
     const moreDaysData = list.map(hourData => ({
       temp: Math.round(hourData.main.temp),
       pressure: hourData.main.pressure,
       windSpeed: hourData.wind.speed,
       humidity: hourData.main.humidity,
       icon: `http://openweathermap.org/img/wn/${hourData.weather[0].icon}@2x.png`,
-      // dt: ConverterToDate(hourData.dt),
-      // hour: ConverterToHour(hourData.dt),
+      dt: dateConverter(hourData.dt),
+      hour: hourConverter(hourData.dt),
     }));
-
     renderMoreInfoData(moreDaysData);
   });
 };
- getMoreInfoData();
-openMoreInfoBtn.addEventListener('click', getMoreInfoData);
+
+getMoreInfoData();
+
+fiveDaysWeather.addEventListener('click', getMoreInfoData);
+console.log();
 
 function renderMoreInfoData(moreDaysData) {
   hoursWeather.classList.remove('.visually-hidden');
   // if (moreInfoList) {
   //   moreInfoList.forEach(e => e.remove());
   // }
-  console.log(moreDaysData);
+  // console.log(moreDaysData);
   moreInfoList.innerHTML = moreInfoTpl(moreDaysData);
 }
 
+function dateConverter(UNIX_timestamp) {
+  let newDate = new Date(UNIX_timestamp * 1000);
+  let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  let month = months[newDate.getMonth()];
+  let date = newDate.getDate();
+  let CurrentDate = date + ' ' + month;
+  return CurrentDate;
+}
+
+function hourConverter(UNIX_timestamp) {
+  let newDate = new Date(UNIX_timestamp * 1000);
+  let hour = newDate.getHours() < 10 ? '0' + newDate.getHours() : newDate.getHours();
+  let min = newDate.getMinutes() < 10 ? '0' + newDate.getMinutes() : newDate.getMinutes();
+  let CurrentHour = `${hour}:${min}`;
+  return CurrentHour;
+}
 // const renderMoreInfo = target => {
 //   // moreInfoData = apiService.getData('forecast');
 //   hoursWeather.classList.remove('.vh');
