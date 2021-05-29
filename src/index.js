@@ -2,7 +2,8 @@ import './sass/main.scss';
 
 import './js/apiService.js';
 
-import './js/header.js'
+import './js/header.js';
+import './js/buttons.js';
 import './js/calendar.js';
 import './js/chart.js';
 import './js/fiveDays.js';

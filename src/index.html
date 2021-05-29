@@ -30,7 +30,6 @@
 
           // убрал класс btn, т.к. он мне чем-то мешал О.о
           <button class="favorite-btn" type="button">
-
             <img src="./images/fav-icon.png" alt="favorite-btn" />
           </button>
         </form>
@@ -47,10 +46,12 @@
 
       <div class="content">
         <div class="weather-box">
-          <div class="one-day"></div>
+          <div class="one-day" id="oneday"></div>
           <div class="button-box">
-            <button class="one-day-btn button" data-action="today">today</button>
-            <button class="five-day-btn button" data-action="fiveDays">5 days</button>
+            <button class="one-day-btn button" id="todayBtn" data-action="today">today</button>
+            <button class="five-day-btn button" id="fiveDaysBtn" data-action="fiveDays">
+              5 days
+            </button>
           </div>
 
           <div class="date"></div>
@@ -62,14 +63,13 @@
             <p class="quote-author">Dale Evans</p>
           </div>
           <div class="more-info-weather">
-
-            <div class="fivedays-weather">
-              <div class="hours-weather">
+            <div class="fivedays-weather" hidden>
+              <div class="hours-weather" hidden>
                 <ul class="more-info-list"></ul>
               </div>
             </div>
           </div>
-          <div class="fivedays-chart"></div>
+          <div class="fivedays-chart" hidden></div>
           <!--           </div> -->
 
           <!-- <div class="hours-wether visually-hidden">
