@@ -7,8 +7,10 @@ let fiveDaysData = [];
 
 const renderFiveDays = data => {
   // console.log(apiService.getData('forecast'));
+
   const allDaysArr = data.list; // получаем массив из 40 объектов
   // console.log(allDaysArr);
+
 
   // const oneDayArr = data.list.map(element => new Date(element.dt * 1000).getDate());
   const oneDayArr = data.list.map(element => element.dt_txt.slice(0, 10));
@@ -25,7 +27,7 @@ const renderFiveDays = data => {
   const fiveDays = dataUnique.map(data =>
     //   allDaysArr.filter(obj => new Date(obj.dt * 1000).getDate() === data),
 
-    allDaysArr.filter(obj => obj.dt_txt.slice(0, 10) === data),
+  allDaysArr.filter(obj => obj.dt_txt.slice(0, 10) === data),
   );
   // console.log(fiveDays);
 
@@ -150,7 +152,6 @@ const renderFiveDays = data => {
   });
 
   fiveDaysData = weatherParams;
-  // console.log(fiveDaysData);
 
   const finalData = {
     city: data.city.name,
@@ -162,6 +163,10 @@ const renderFiveDays = data => {
 };
 
 export { renderFiveDays, fiveDaysData };
+
+  
+// apiService.getFiveDayData();
+
 //
 //
 //
@@ -200,6 +205,7 @@ export { renderFiveDays, fiveDaysData };
 // };
 
 // getFiveDaysData();
+
 
 // Делаем запрос на сервер и получаем данные для more info
 // const getMoreInfoData = () => {

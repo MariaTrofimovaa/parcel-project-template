@@ -17,7 +17,7 @@ function renderFiveDay() {
       arrowRight,
       ...renderData,
     };
-    document.querySelector('.fivedays-weather').innerHTML = fiveDaysTpl(tplDate);
+    document.querySelector('.fivedays-weather').insertAdjacentHTML('afterbegin', fiveDaysTpl(tplDate));
   
     // console.log(data);
   }).catch(error => {
@@ -43,6 +43,19 @@ renderFiveDay();
 
 
 export default renderFiveDay;
+
+
+// apiService.getData('forecast').then(data => {
+//   const renderData = renderFiveDays(data);
+//   const tplDate = {
+//     arrowLeft,
+//     arrowRight,
+//     ...renderData,
+//   };
+//   document.querySelector('.fivedays-weather').insertAdjacentHTML('afterbegin', fiveDaysTpl(tplDate));
+
+//   // console.log(data);
+// });
 
 
 // Рендерим данные за 5 дней (перенести в файл fiveDays) - Руслан
