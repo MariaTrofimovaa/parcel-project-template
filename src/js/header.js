@@ -1,12 +1,22 @@
 import apiServise from './apiService';
 import updateButtons from '../templates/favoriteElem.hbs';
-// import {renderOneDay} from './renders/renderOneDay.js'
+import renderOneDay from './oneDay.js';
+import renderFiveDay from './fiveDays.js';
+import renderCalendar from './calendar.js';
+
+console.log(renderOneDay);
 // import updateOneDay from '../template/oneDay.hbs';
 
 const searchbox = document.querySelector('.input-form');
 const inputRef = document.querySelector('.search-box');
 const favoriteBtnRef = document.querySelector('.favorite-btn');
 const favListRef = document.querySelector('.city-list');
+
+inputRef.addEventListener('input', function () {
+  if (this.value) {
+    return (this.value = this.value[0].toUpperCase() + this.value.slice(1));
+  }
+});
 
 searchbox.addEventListener('submit', setQuery);
 function setQuery(evt) {
@@ -15,7 +25,9 @@ function setQuery(evt) {
   apiServise.query = inputValue;
   console.log(inputValue);
   // функция для рендера одного дня
-  // const a = renderOneDay(evt);
+  renderOneDay();
+  renderCalendar();
+  renderFiveDay();
 }
 
 // favoriteBtnRef.addEventListener('click', addFavCityOnList);
