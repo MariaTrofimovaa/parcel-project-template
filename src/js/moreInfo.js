@@ -11,8 +11,7 @@ const moreInfoList = document.querySelector('.more-info-list');
 const openMoreInfoBtn = document.querySelector('.show-more-info');
 const fiveDaysWeather = document.querySelector('.fivedays-weather');
 
-
-const getMoreInfoData = (target) => {
+const getMoreInfoData = target => {
   const currentDay = target.dataset.day;
   const dayInfo = fiveDaysData.find(({ day }) => day === +currentDay);
   const moreDaysData = dayInfo.forecast.map(hourData => ({
@@ -24,12 +23,12 @@ const getMoreInfoData = (target) => {
     icon: `http://openweathermap.org/img/wn/${hourData.weather[0].icon}@2x.png`,
     hour: hourConverter(hourData.dt),
   }));
-  
-  renderMoreInfoData(moreDaysData); 
-}
+
+  renderMoreInfoData(moreDaysData);
+};
 
 function renderMoreInfoData(moreDaysData) {
-    moreInfoList.innerHTML = moreInfoTpl(moreDaysData);
+  moreInfoList.innerHTML = moreInfoTpl(moreDaysData);
 }
 
 moreInfoWeather.addEventListener('click', handleMoreInfoClick);
@@ -49,5 +48,3 @@ function hourConverter(UNIX_timestamp) {
   let CurrentHour = `${hour}:${min}`;
   return CurrentHour;
 }
-
-

@@ -10,7 +10,8 @@ function setBgImages() {
   });
 }
 setBgImages();
-export { setBgImages };
+
+export default setBgImages;
 
 //
 //

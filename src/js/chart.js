@@ -8,9 +8,8 @@ Chart.register(...registerables);
 document.querySelector('.fivedays-chart').insertAdjacentHTML('beforeend', chartTpl());
 const ctx = document.querySelector('.js-chart').getContext('2d');
 
-let chart = {};
-
 function renderChartData() {
+  let chart = {};
   // console.log(fiveDaysData);
   // 1. Получаем число, месяц, год
   const сhartData = fiveDaysData.map(e => {
@@ -109,7 +108,6 @@ function renderChartData() {
       responsive: true,
       maintainAspectRatio: false,
     },
-
   });
 }
 
@@ -117,7 +115,6 @@ function renderChartData() {
 //     maintainAspectRatio: false,
 //   },
 // });
-
 
 // ==================================
 const boxOfShowChart = document.querySelector('.show-chart-box');
@@ -136,12 +133,12 @@ function onShowChartClick() {
   boxOfShowChart.classList.add('none') & chartBox.classList.add('visible');
 
   renderChartData();
-
 }
 
 function onHideChartClick() {
   chartBox.classList.remove('visible') & boxOfShowChart.classList.remove('none');
 
   // chart.destroy(); // удалить график
-
 }
+
+export default renderChartData;

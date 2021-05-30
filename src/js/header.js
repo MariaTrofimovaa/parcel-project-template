@@ -3,6 +3,8 @@ import updateButtons from '../templates/favoriteElem.hbs';
 import renderOneDay from './oneDay.js';
 import renderFiveDay from './fiveDays.js';
 import renderCalendar from './calendar.js';
+import renderChartData from './chart.js';
+import setBgImages from './components/bg-service.js';
 
 console.log(renderOneDay);
 // import updateOneDay from '../template/oneDay.hbs';
@@ -28,6 +30,8 @@ function setQuery(evt) {
   renderOneDay();
   renderCalendar();
   renderFiveDay();
+  renderChartData();
+  setBgImages();
 }
 
 // favoriteBtnRef.addEventListener('click', addFavCityOnList);
