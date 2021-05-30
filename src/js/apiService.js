@@ -43,7 +43,7 @@ class ApiService {
 
   // Получаем текущую локацию после Submit или Enter
   set query(newLocation) {
-    newLocation = this.location;
+    this.location = newLocation;
   }
 }
 
