@@ -26,6 +26,7 @@ function renderFiveDay() {
 }
 
 
+
 // apiService.getData('forecast').then(data => {
 //   const renderData = renderFiveDays(data);
 //   const tplDate = {
@@ -42,6 +43,7 @@ renderFiveDay();
 
 
 export default renderFiveDay;
+
 
 // Рендерим данные за 5 дней (перенести в файл fiveDays) - Руслан
 // const fiveDays = document.querySelector('.fivedays-weather'); // вынести в рефы

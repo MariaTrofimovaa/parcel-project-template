@@ -1,14 +1,19 @@
-{{#each this}}
-<li class="more-info" data-date='{{dt}}'>
-    <span class="more-info-time">{{hour}}</span>
-    <img  class="more-info-temp-icon" src="{{icon}}" alt="{{iconDescription}}" >
+{{#each weatherParams}}
+
+    <li class="more-info" data-date=''>
+        <p>{{day}}</p> <-- пример -->
+    <span class="more-info-time">{{date}}</span>
+    <img  class="more-info-temp-icon" src="{{icon}}" alt="{{description}}" >
     <span class="more-info-temp">{{temp}} &#176;</span>
     <ul class="more-info-data">
+
         <li class="more-info-pressure">{{pressure}} mm</li>
         <li class="more-info-humidity">{{humidity}}%</li>
-        <li class="more-info-wind">{{windSpeed}} m/s</li>
+        <li class="more-info-wind">{{wind.speed}} m/s</li>
+
     </ul>
 </li>
 {{/each}}
+
 
 
