@@ -30,17 +30,18 @@ function setQuery(evt) {
   renderFiveDay();
 }
 
-favoriteBtnRef.addEventListener('click', addFavCityOnList);
+// favoriteBtnRef.addEventListener('click', addFavCityOnList);
 
 function addFavCityOnList() {
   // если пустая строка не дает добавить (есть баг что пробел не воспринимает как пробел и добавляет если его тыкнуть, надо будет подуамть)
-  if (inputRef.value === '') {
+  if (inputRef.value.trim() === '') {
     return;
   }
   const inputValue = inputRef.value;
   console.log(inputValue);
   favListRef.insertAdjacentHTML('beforeend', updateButtons([inputValue]));
 }
+// favListRef.insertAdjacentHTML('beforeend', localStorage.getItem('City'));
 
 //=============================LOCAL STORAGE====================================
 
@@ -48,15 +49,20 @@ const storage = {
   cityArray: [],
 };
 
+const savedArray = JSON.parse(localStorage.getItem('City'));
+if (savedArray) {
+  storage.cityArray = savedArray;
+}
+
 const updateView = () => {
-  localStorage.getItem('City');
+  favListRef.innerHTML = updateButtons(storage.cityArray);
 };
 
 const saveLocalStorage = () => {
   // значение инпута записал в переменную
   const inputValue = inputRef.value;
   // не дает запушить в локал сторадж пустую строку, проблема с пробелами все еще актуальна О.о
-  if (inputRef.value === '') {
+  if (inputRef.value.trim() === '') {
     return;
   }
   // пушим значение инпутвэлью в на массив городов
@@ -65,7 +71,7 @@ const saveLocalStorage = () => {
   // есть баг, при обновлении страницы и добавления нового массива - перезаписывает старый с нуля,
   // т.к.типо один и тот же ключ, ниже альтернатива которая к ключу типо добавляет время и делает его
   // уникальным, пока не предумал как это использовать
-  localStorage.setItem('city', JSON.stringify(storage.cityArray));
+  localStorage.setItem('City', JSON.stringify(storage.cityArray));
   //альтернатива, можете раскоментить и посмотреть что происходит =\
   // localStorage.setItem('city_' + new Date().getTime(), JSON.stringify(storage.cityArray));
   updateView();
@@ -73,5 +79,47 @@ const saveLocalStorage = () => {
 
 updateView();
 
-searchbox.addEventListener('submit', saveLocalStorage);
 favoriteBtnRef.addEventListener('click', saveLocalStorage);
+// searchbox.addEventListener('submit', saveLocalStorage);
+
+// * Localstorage
+// favListRef.addEventListener('click', addToLocalStorage);
+// const storage = {
+//   citiesArr: [],
+// };
+// function addToLocalStorage() {
+//   const inputValue = inputRef.value;
+//   settings.citiesArr.push(inputValue);
+
+//   localStorage.setItem('City', JSON.stringify(storage.citiesArr));
+// }
+
+// function getLocalStorage() {
+//   const citiesArr = localStorage.getItem('City');
+
+//   if (!citiesArr) {
+//     return;
+//   }
+
+//   const parsedCyties = JSON.parse(citiesArr);
+//   storage.citiesArr = parsedCyties;
+
+//   return parsedCyties;
+// }
+
+// function createMarkup(city) {
+//   const markup = favCity(city);
+//   favListRef.innerHTML = markup;
+// }
+
+// createMarkup(getLocalStorage());
+
+// //
+
+// favListRef.addEventListener('click', event => {
+//   if (event.target.nodeName === 'BUTTON') {
+//     const textContent = event.path[1].childNodes[1].textContent;
+//     const indexForRemove = storage.favoriteCities.indexOf(textContent);
+//     createMarkup(getLocalStorage());
+//   }
+// });
