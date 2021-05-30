@@ -5,10 +5,12 @@ import { renderFiveDays, fiveDaysData } from './base/helper.js';
 // import refs from '../refs';
 
 const moreInfoWeather = document.querySelector('.more-info-weather');
+
 const hoursWeather = document.querySelector('.hours-weather');
 const moreInfoList = document.querySelector('.more-info-list');
 const openMoreInfoBtn = document.querySelector('.show-more-info');
 const fiveDaysWeather = document.querySelector('.fivedays-weather');
+
 
 const getMoreInfoData = (target) => {
   const currentDay = target.dataset.day;
@@ -47,4 +49,5 @@ function hourConverter(UNIX_timestamp) {
   let CurrentHour = `${hour}:${min}`;
   return CurrentHour;
 }
+
 

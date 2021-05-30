@@ -8,83 +8,140 @@ Chart.register(...registerables);
 document.querySelector('.fivedays-chart').insertAdjacentHTML('beforeend', chartTpl());
 const ctx = document.querySelector('.js-chart').getContext('2d');
 
-new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['сегодня', 'завтра', 'послезавтра', 'через 2 дня', 'через 3 дня'],
+let chart = {};
 
-    datasets: [
-      {
-        label: '— Temperature, C° ',
-        data: [1.5, 1.2, 1.0, 1.9, 1.7, 1.1],
-        //         data: chartData.temp,
-        backgroundColor: '#FF6B09',
-        borderColor: '#FF6B09',
-        borderWidth: 1,
-      },
-      {
-        label: '— Humidity, % ',
-        data: [0.5, 0.3, 0.2, 0.9, 0.1, 0.7],
-        //         data: chartData.humidity,
-        backgroundColor: '#0906EB',
-        borderColor: '#0906EB',
-        borderWidth: 1,
-      },
-      {
-        label: '— Wind Speed, m/s ',
-        data: [2.1, 2.7, 2.3, 2.8, 2.2, 2.0],
-        //         data: chartData.speed,
-        backgroundColor: '#EA9A05',
-        borderColor: '#EA9A05',
-        borderWidth: 1,
-      },
-      {
-        label: '— Atmosphere Pressure, m/m',
-        data: [1.9, 2.1, 2.2, 2.5, 2.0, 2.7],
-        //         data: chartData.pressure,
-        backgroundColor: '#067806',
-        borderColor: '#067806',
-        borderWidth: 1,
-      },
-    ],
-  },
-  options: {
-    legend: {
-      display: true,
-      align: 'start',
+function renderChartData() {
+  // console.log(fiveDaysData);
+  // 1. Получаем число, месяц, год
+  const сhartData = fiveDaysData.map(e => {
+    // console.log(e.month);
+    // console.log(e.day);
+    // console.log(e.year);
+    return e.month + ' ' + e.day + ', ' + e.year;
+  });
+  console.log(сhartData);
 
-      labels: {
-        boxWidth: 13,
-        boxHeight: 12,
-        defaultFontColor: 'rgb(5, 120, 6)',
-      },
+  // 2. Получаем температуру
+  const сhartTemp = fiveDaysData.map(e => e.tempDay);
+  console.log(сhartTemp);
+  // 2. Получаем влажность
+  const сhartHumidity = fiveDaysData.map(e => e.humidity);
+  console.log(сhartHumidity);
+  // 2. Получаем скорость ветра
+  const сhartWindSpeed = fiveDaysData.map(e => e.wind);
+  console.log(сhartWindSpeed);
+  // 2. Получаем давление
+  const сhartPressure = fiveDaysData.map(e => e.pressure);
+  console.log(сhartPressure);
+
+  chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: сhartData,
+
+      datasets: [
+        {
+          label: '— Temperature, C° ',
+          data: сhartTemp,
+          backgroundColor: '#FF6B09',
+          borderColor: '#FF6B09',
+          borderWidth: 1,
+        },
+        {
+          label: '— Humidity, % ',
+          data: сhartHumidity,
+          backgroundColor: '#0906EB',
+          borderColor: '#0906EB',
+          borderWidth: 1,
+        },
+        {
+          label: '— Wind Speed, m/s ',
+          data: сhartWindSpeed,
+          backgroundColor: '#EA9A05',
+          borderColor: '#EA9A05',
+          borderWidth: 1,
+        },
+        {
+          label: '— Atmosphere Pressure, m/m',
+          data: сhartPressure,
+          backgroundColor: '#067806',
+          borderColor: '#067806',
+          borderWidth: 1,
+        },
+      ],
     },
+    options: {
+      legend: {
+        display: true,
+        align: 'start',
 
-    scales: {
-      x: {
-        grid: {
-          color: 'rgba(255, 255, 255, 0.54)',
+        labels: {
+          boxWidth: 13,
+          boxHeight: 12,
+          defaultFontColor: 'rgb(5, 120, 6)',
+        },
+      },
 
-          ticks: {
-            padding: 20,
+      scales: {
+        x: {
+          grid: {
+            color: 'rgba(255, 255, 255, 0.54)',
+
+            ticks: {
+              padding: 20,
+            },
+          },
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Value of indicators',
+          },
+          grid: {
+            color: 'rgba(255, 255, 255, 0.54)',
+
+            ticks: {
+              padding: 20,
+            },
           },
         },
       },
-      y: {
-        title: {
-          display: true,
-          text: 'Value of indicators',
-        },
-        grid: {
-          color: 'rgba(255, 255, 255, 0.54)',
-
-          ticks: {
-            padding: 20,
-          },
-        },
-      },
+      responsive: true,
+      maintainAspectRatio: false,
     },
-    responsive: true,
-    maintainAspectRatio: false,
-  },
-});
+
+  });
+}
+
+//     responsive: true,
+//     maintainAspectRatio: false,
+//   },
+// });
+
+
+// ==================================
+const boxOfShowChart = document.querySelector('.show-chart-box');
+const chartBox = document.querySelector('.chart-box');
+const btnShowChart = document.querySelector('.show-chart-btn-js');
+const headerOfShowChart = document.querySelector('.show-chart-header-js');
+const btnHideChart = document.querySelector('.hide-chart-btn-js');
+const headerOfHideChart = document.querySelector('.hide-chart-header-js');
+// ==================================
+btnShowChart.addEventListener('click', onShowChartClick);
+headerOfShowChart.addEventListener('click', onShowChartClick);
+btnHideChart.addEventListener('click', onHideChartClick);
+headerOfHideChart.addEventListener('click', onHideChartClick);
+// ==================================
+function onShowChartClick() {
+  boxOfShowChart.classList.add('none') & chartBox.classList.add('visible');
+
+  renderChartData();
+
+}
+
+function onHideChartClick() {
+  chartBox.classList.remove('visible') & boxOfShowChart.classList.remove('none');
+
+  // chart.destroy(); // удалить график
+
+}

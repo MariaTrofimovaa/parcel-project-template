@@ -1,13 +1,14 @@
 import config from '../config.json';
 
 class ApiService {
-  constructor(dt) {
+  constructor() {
     this.requestUrl = config.url;
-    this.requestUrlOneCall = config.urlOneCall;
+    this.bgIconUrl = config.bgIconUrl;
     this.key = config.apiKey;
+    this.apiKeyImg = config.apiKeyImg;
     this.searchQuery = '';
     this.units = config.units;
-    this.location = 'Kiev';
+    this.location = 'Lviv';
     this.metric = config.metric;
   }
 
@@ -27,26 +28,61 @@ class ApiService {
     });
   }
 
-  // Получаем данные за 5 дней. Точка отсчета 27.05.21, локация - Киев
-  getFiveDayData() {
-    const urlOneCall = `${this.requestUrlOneCall}?lat=${this.lat}&lon=${this.lon}&dt=${this.time}&appid=${this.key}`;
+  // Метод получения изображений с pixabay
+  fetchImages() {
+    const bgUrlIcon = `${this.bgIconUrl}${this.location}&page=1&per_page=12&key=${this.apiKeyImg}`;
+    // console.log(bgUrlIcon);
 
-    console.log(urlOneCall);
-
-    return fetch(urlOneCall).then(res => {
+    return fetch(bgUrlIcon).then(res => {
       if (res.ok) {
+        // console.log(res);
         return res.json();
       }
-      return Promise.reject('Something went wrong');
+      return Promise.reject('Picture not found');
     });
   }
 
-  // Получаем текущую локацию после Submit или Enter
+  //   Сеттер получения текущей локации после нажатия на Сабмит или Enter
   set query(newLocation) {
-    newLocation = this.location;
+    this.location = newLocation;
   }
+
+  // set setLocationImg(newLocation) {
+  //   this.location = newLocation;
+  // }
 }
 
 const apiService = new ApiService({});
 
 export default apiService;
+
+// Получаем данные за 5 дней.
+// getFiveDayData() {
+//   const urlOneCall = `${this.requestUrlOneCall}?lat=${this.lat}&lon=${this.lon}&dt=${this.time}&appid=${this.key}`;
+
+//   console.log(urlOneCall);
+
+//   return fetch(urlOneCall).then(res => {
+//     if (res.ok) {
+//       return res.json();
+//     }
+//     return Promise.reject('Something went wrong');
+//   });
+// }
+
+// fetchImages(city) {
+//   const bgUrlIcon = `${this.bgIconUrl}${city}&page=1&per_page=12&key=${this.apiKeyImg}`;
+//   // console.log(bgUrlIcon);
+
+//   return fetch(bgUrlIcon).then(res => {
+//     if (res.ok) {
+//       return res.json();
+//     }
+//     return Promise.reject('Picture not found');
+//   });
+// }
+//
+
+// set query(newLocation) {
+//   newLocation = this.location;
+// }
