@@ -14,6 +14,9 @@ apiService.getData('weather').then(data => {
   const month = new Intl.DateTimeFormat('en', { month: 'long' }).format(date);
   let time = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
 
+  function pad(value) {
+    return String(value).padStart(2, '0');
+  }
   const ending = function (day) {
     if (day > 3 && day < 21) return 'th';
     switch (day % 10) {
@@ -36,13 +39,13 @@ apiService.getData('weather').then(data => {
     sunsetIcon,
     ending,
     sunriseTime:
-      new Date(data.sys.sunrise * 1000).getHours() +
+      pad(new Date(data.sys.sunrise * 1000).getHours()) +
       ':' +
-      new Date(data.sys.sunrise * 1000).getMinutes(),
+      pad(new Date(data.sys.sunrise * 1000).getMinutes()),
     sunsetTime:
-      new Date(data.sys.sunset * 1000).getHours() +
+      pad(new Date(data.sys.sunset * 1000).getHours()) +
       ':' +
-      new Date(data.sys.sunset * 1000).getMinutes(),
+      pad(new Date(data.sys.sunset * 1000).getMinutes()),
   };
   document.querySelector('.date').insertAdjacentHTML('beforeend', calendarTpl(config));
 
@@ -55,7 +58,7 @@ apiService.getData('weather').then(data => {
     const day = date.getDate();
     const weekDay = new Intl.DateTimeFormat('en', { weekday: 'short' }).format(date);
     const month = new Intl.DateTimeFormat('en', { month: 'long' }).format(date);
-    let time = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+    let time = pad(date.getHours()) + ':' + pad(date.getMinutes()) + ':' + pad(date.getSeconds());
     const ending = function (day) {
       if (day > 3 && day < 21) return 'th';
       switch (day % 10) {
