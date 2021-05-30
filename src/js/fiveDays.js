@@ -9,21 +9,39 @@ import { renderFiveDays } from '../js/base/helper.js';
 //   document.querySelector('.fivedays-weather').innerHTML = fiveDaysTpl(data);
 //   console.log(data);
 // });
+function renderFiveDay() {
+  return apiService.getData('forecast').then(data => {
+    const renderData = renderFiveDays(data);
+    const tplDate = {
+      arrowLeft,
+      arrowRight,
+      ...renderData,
+    };
+    document.querySelector('.fivedays-weather').innerHTML = fiveDaysTpl(tplDate);
+  
+    // console.log(data);
+  }).catch(error => {
+    console.log(error)
+  });
+}
 
-apiService.getData('forecast').then(data => {
-  const renderData = renderFiveDays(data);
-  const tplDate = {
-    arrowLeft,
-    arrowRight,
-    ...renderData,
-  };
-  document
-    .querySelector('.fivedays-weather')
-    .insertAdjacentHTML('afterbegin', fiveDaysTpl(tplDate));
-  // innerHTML = fiveDaysTpl(tplDate);
 
-  // console.log(data);
-});
+// apiService.getData('forecast').then(data => {
+//   const renderData = renderFiveDays(data);
+//   const tplDate = {
+//     arrowLeft,
+//     arrowRight,
+//     ...renderData,
+//   };
+//   document
+//     .querySelector('.fivedays-weather')
+//     .insertAdjacentHTML('afterbegin', fiveDaysTpl(tplDate));
+//   // innerHTML = fiveDaysTpl(tplDate);
+
+renderFiveDay();
+
+
+export default renderFiveDay;
 
 // Рендерим данные за 5 дней (перенести в файл fiveDays) - Руслан
 // const fiveDays = document.querySelector('.fivedays-weather'); // вынести в рефы

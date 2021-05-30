@@ -88,3 +88,24 @@ new Chart(ctx, {
     maintainAspectRatio: false,
   },
 });
+
+// ==================================
+const boxOfShowChart = document.querySelector('.show-chart-box');
+const chartBox = document.querySelector('.chart-box');
+const btnShowChart = document.querySelector('.show-chart-btn-js');
+const headerOfShowChart = document.querySelector('.show-chart-header-js');
+const btnHideChart = document.querySelector('.hide-chart-btn-js');
+const headerOfHideChart = document.querySelector('.hide-chart-header-js');
+// ==================================
+btnShowChart.addEventListener('click', onShowChartClick);
+headerOfShowChart.addEventListener('click', onShowChartClick);
+btnHideChart.addEventListener('click', onHideChartClick);
+headerOfHideChart.addEventListener('click', onHideChartClick);
+// ==================================
+function onShowChartClick() {
+  boxOfShowChart.classList.add('none') & chartBox.classList.add('visible');
+}
+
+function onHideChartClick() {
+  chartBox.classList.remove('visible') & boxOfShowChart.classList.remove('none');
+}
