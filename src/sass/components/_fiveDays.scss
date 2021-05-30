@@ -1,118 +1,3 @@
-.one-day {
-  width: 280px;
-  margin-top: 45px;
-  color: #fff;
-  background-color: #102136;
-  width: 100%;
-  padding: 30px 56px;
-  border-radius: 34px;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.five-days-weather-more-item {
-  opacity: 0.55;
-}
-
-.city-title,
-.min-temperature-item,
-.max-temperature-item {
-  color: #767d85;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 1.21;
-}
-
-.city {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 1.18;
-}
-
-.min-temperature {
-  border-right: 1px solid #27384a;
-  margin-right: 10px;
-  padding-right: 10px;
-}
-
-.temperature-item {
-  margin-bottom: 4px;
-}
-
-.min-temperature-item2,
-.max-temperature-item2 {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 1.18;
-}
-
-.temperature-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.nim-max-temperature {
-  display: flex;
-  justify-content: space-between;
-}
-
-.temperature-item-one {
-  font-style: normal;
-  font-weight: 300;
-  font-size: 45px;
-  line-height: 54px;
-  letter-spacing: 0.04em;
-
-  margin-top: 10px;
-}
-
-.weather-btn {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  text-align: center;
-}
-
-.one-day-btn {
-  margin-right: 14px;
-}
-
-.one-day-btn.button:hover,
-.one-day-btn.button:focus,
-.five-day-btn.button:hover,
-.five-day-btn.button:hover {
-  background-color: #fff;
-}
-
-.button-box {
-  text-align: center;
-}
-
-.button {
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 1.21;
-  text-transform: uppercase;
-
-  background: rgba(255, 255, 255, 0.5);
-  width: 126px;
-  padding: 6px 36px;
-  border-radius: 20px;
-  border: none;
-
-  margin-bottom: 30px;
-}
-
-.picture {
-  display: inline-block;
-  text-align: center;
-  width: 60px;
-  height: 60px;
-}
-
 .fivedays-weather {
   padding-top: 30px;
   padding-left: 20px;
@@ -126,13 +11,14 @@
 }
 
 .five-days-weather-list {
+  overflow-x: auto;
   display: flex;
   margin-bottom: 15px;
 }
 
 .arrow {
   display: flex;
-  margin-left: 84px;
+  margin-left: 90px;
 }
 
 .show-chart-list {
@@ -195,29 +81,24 @@
 }
 
 .show-more-info {
-  // padding-bottom: 2px;
+  background-color: transparent;
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.66;
   opacity: 0.3;
   text-decoration: underline;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1280px) {
-  .one-day {
-    width: 500px;
-    margin: 0 auto;
-    margin-bottom: 40px;
-  }
+.min-temperature-item2.fiveday,
+.max-temperature-item2.fiveday {
+  color: #ff6b09;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.21;
+}
 
-  .temperature-list {
-    display: block;
-  }
-
-  .nim-max-temperature {
-    justify-content: center;
-  }
-
-  .button {
-    margin-bottom: 40px;
-  }
+@media screen and (min-width: 768px) and (max-width: 1279px) {
   .fivedays-weather {
     width: 620px;
     text-align: center;
@@ -292,5 +173,62 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 1.22;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .fivedays-weather {
+    width: 1060px;
+    margin: 0 auto;
+  }
+
+  .five-days-weather-list {
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .five-days-weather-item:not(:last-child) {
+    margin-right: 60px;
+  }
+
+  .five-days-weather-item {
+    width: 120px;
+  }
+
+  .five-days-weather-more-item {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.22;
+  }
+
+  .five-days-weather-more-item2 {
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+  }
+
+  .min-temperature-item.fiveday,
+  .max-temperature-item.fiveday {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.22;
+  }
+
+  .min-temperature-item2.fiveday,
+  .max-temperature-item2.fiveday {
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 1.2;
+  }
+  .show-more-info {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.21;
   }
 }

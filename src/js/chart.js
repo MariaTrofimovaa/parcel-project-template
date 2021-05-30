@@ -109,8 +109,15 @@ function renderChartData() {
       responsive: true,
       maintainAspectRatio: false,
     },
+
   });
 }
+
+//     responsive: true,
+//     maintainAspectRatio: false,
+//   },
+// });
+
 
 // ==================================
 const boxOfShowChart = document.querySelector('.show-chart-box');
@@ -127,10 +134,14 @@ headerOfHideChart.addEventListener('click', onHideChartClick);
 // ==================================
 function onShowChartClick() {
   boxOfShowChart.classList.add('none') & chartBox.classList.add('visible');
+
   renderChartData();
+
 }
 
 function onHideChartClick() {
   chartBox.classList.remove('visible') & boxOfShowChart.classList.remove('none');
+
   // chart.destroy(); // удалить график
+
 }
