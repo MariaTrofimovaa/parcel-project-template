@@ -1,8 +1,9 @@
 {
     "url": "https://api.openweathermap.org/data/2.5/",
-    "urlOneCall" : "https://api.openweathermap.org/data/2.5/onecall/timemachine",
+    "bgIconUrl": "https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=",
     "urlIcon": "http://openweathermap.org/img/wn/",
     "apiKey": "b2e20a408d2fb97b7ae2d0be72bcb7e8",
+    "apiKeyImg": "21692069-20428e2069b68a036394e4dd0",
     "units": "metric",
     "metric": "celsius"
 

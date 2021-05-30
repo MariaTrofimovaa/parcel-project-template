@@ -11,9 +11,9 @@
     padding: 0 160px 0 130px;
   }
 }
-// .chart-box {
-//   display: none;
-// }
+.chart-box {
+  display: none;
+}
 .chart-box {
   width: 280px;
   padding: 16px 10px;
@@ -28,7 +28,7 @@
   }
   @media screen and (min-width: 1280px) {
     width: 1060px;
-    padding: 23px 10px 45px 80px;
+    padding: 24px 158px 40px 80px;
   }
 }
 
@@ -40,7 +40,8 @@
 }
 
 .chart-header {
-  margin-bottom: 8px;
+  margin-top: 20px;
+  margin-bottom: 60px;
   padding-right: 14px;
   font-size: 14px;
   line-height: 22px;
@@ -49,6 +50,10 @@
   text-align: center;
   @media screen and (min-width: 768px) {
     font-size: 15px;
+    margin-bottom: 38px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 56px;
   }
 }
 
@@ -100,7 +105,7 @@
   }
 }
 
-.show-chart-box.hidden {
+.show-chart-box.none {
   display: none;
 }
 

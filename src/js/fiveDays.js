@@ -17,6 +17,7 @@ apiService.getData('forecast').then(data => {
     arrowRight,
     ...renderData,
   };
+  // console.log(tplDate);
   document.querySelector('.fivedays-weather').innerHTML = fiveDaysTpl(tplDate);
 
   // console.log(data);
