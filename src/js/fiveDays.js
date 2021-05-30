@@ -25,7 +25,21 @@ function renderFiveDay() {
   });
 }
 
+
+// apiService.getData('forecast').then(data => {
+//   const renderData = renderFiveDays(data);
+//   const tplDate = {
+//     arrowLeft,
+//     arrowRight,
+//     ...renderData,
+//   };
+//   document
+//     .querySelector('.fivedays-weather')
+//     .insertAdjacentHTML('afterbegin', fiveDaysTpl(tplDate));
+//   // innerHTML = fiveDaysTpl(tplDate);
+
 renderFiveDay();
+
 
 export default renderFiveDay;
 
