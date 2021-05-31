@@ -26,6 +26,7 @@ const getMoreInfoData = target => {
 };
 
 function renderMoreInfoData(moreDaysData) {
+  hoursWeather.classList.remove('visually-hidden');
   moreInfoList.innerHTML = moreInfoTpl(moreDaysData);
 }
 
@@ -39,10 +40,30 @@ function handleMoreInfoClick(event) {
   }
 }
 
-function hourConverter(UNIX_timestamp) {
-  let newDate = new Date(UNIX_timestamp * 1000);
-  let hour = newDate.getHours() < 10 ? '0' + newDate.getHours() : newDate.getHours();
-  let min = newDate.getMinutes() < 10 ? '0' + newDate.getMinutes() : newDate.getMinutes();
+function hourConverter(UNIX) {
+  let newDate = new Date(UNIX * 1000);
+  let hour = newDate.getUTCHours() < 10 ? '0' + newDate.getUTCHours() : newDate.getUTCHours();
+  let min = newDate.getMinutes() < 10 ? '0' + newDate.getUTCMinutes() : newDate.getUTCMinutes();
   let CurrentHour = `${hour}:${min}`;
   return CurrentHour;
+}
+
+const rightArrow = document.querySelector('#right-arrow');
+const leftArrow = document.querySelector('#left-arrow');
+
+rightArrow.addEventListener('click', scrollToLeft);
+leftArrow.addEventListener('click', scrollToRight);
+
+function scrollToLeft() {
+  moreInfoList.scroll({
+    left: 260,
+    behavior: 'smooth',
+  });
+}
+
+function scrollToRight() {
+  moreInfoList.scroll({
+    left: -1,
+    behavior: 'smooth',
+  });
 }
