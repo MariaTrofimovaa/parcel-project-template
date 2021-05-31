@@ -1,4 +1,4 @@
-import apiServise from './apiService';
+import apiServise from './base/apiService';
 import updateButtons from '../templates/favoriteElem.hbs';
 import renderOneDay from './oneDay.js';
 import renderFiveDay from './fiveDays.js';
@@ -6,7 +6,7 @@ import renderCalendar from './calendar.js';
 import renderChartData from './chart.js';
 import setBgImages from './components/bg-service.js';
 
-console.log(renderOneDay);
+// console.log(renderOneDay);
 // import updateOneDay from '../template/oneDay.hbs';
 
 const searchbox = document.querySelector('.input-form');
@@ -25,7 +25,7 @@ function setQuery(evt) {
   evt.preventDefault();
   const inputValue = inputRef.value;
   apiServise.query = inputValue;
-  console.log(inputValue);
+  // console.log(inputValue);
   // функция для рендера одного дня
   renderOneDay();
   renderCalendar();
@@ -47,7 +47,7 @@ function addFavCityOnList() {
 }
 // favListRef.insertAdjacentHTML('beforeend', localStorage.getItem('City'));
 
-//=============================LOCAL STORAGE====================================
+//============================= LOCAL STORAGE ====================================
 
 const storage = {
   cityArray: [],
@@ -84,6 +84,7 @@ const saveLocalStorage = () => {
 updateView();
 
 favoriteBtnRef.addEventListener('click', saveLocalStorage);
+
 // searchbox.addEventListener('submit', saveLocalStorage);
 
 // * Localstorage

@@ -1,4 +1,4 @@
-import apiService from '../apiService.js';
+import apiService from '../base/apiService.js';
 
 const body = document.body;
 
