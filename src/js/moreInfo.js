@@ -1,16 +1,8 @@
 import moreInfoTpl from '../templates/moreInfo.hbs';
-import fiveDaysTpl from '../templates/fiveDays.hbs';
-// import apiService from './base/apiService.js';
 import { fiveDaysData } from './base/helper.js';
 
-// import refs from '../refs';
-
-const moreInfoWeather = document.querySelector('.more-info-weather');
-
-const hoursWeather = document.querySelector('.hours-weather');
-const moreInfoList = document.querySelector('.more-info-list');
-const openMoreInfoBtn = document.querySelector('.show-more-info');
-const fiveDaysWeather = document.querySelector('.fivedays-weather');
+// const openMoreInfoBtn = document.querySelector('.show-more-info');
+// const fiveDaysWeather = document.querySelector('.fivedays-weather');
 
 const getMoreInfoData = target => {
   const currentDay = target.dataset.day;
@@ -29,15 +21,42 @@ const getMoreInfoData = target => {
 };
 
 function renderMoreInfoData(moreDaysData) {
+  const hoursWeather = document.querySelector('.hours-weather');
+  const moreInfoList = document.querySelector('.more-info-list');
+  const rightArrow = document.querySelector('#right-arrow');
+  const leftArrow = document.querySelector('#left-arrow');
+
   hoursWeather.classList.remove('visually-hidden');
   moreInfoList.innerHTML = moreInfoTpl(moreDaysData);
+  rightArrow.addEventListener('click', scrollToLeft);
+  leftArrow.addEventListener('click', scrollToRight);
+
+  // *****
+  function scrollToLeft() {
+    moreInfoList.scroll({
+      left: +moreInfoList.scrollLeft + 260,
+      behavior: 'smooth',
+    });
+  }
+
+  function scrollToRight() {
+    moreInfoList.scroll({
+      left: +moreInfoList.scrollLeft - 260,
+      behavior: 'smooth',
+    });
+  }
+  initEvtFiveDays();
 }
 
-moreInfoWeather.addEventListener('click', handleMoreInfoClick);
+function initEvtFiveDays() {
+  const moreInfoWeather = document.querySelector('.more-info-weather');
+  moreInfoWeather.addEventListener('click', handleMoreInfoClick);
+}
 
 function handleMoreInfoClick(event) {
   event.preventDefault();
   const target = event.target;
+
   if (target.nodeName === 'BUTTON') {
     getMoreInfoData(target);
   }
@@ -51,22 +70,6 @@ function hourConverter(UNIX) {
   return CurrentHour;
 }
 
-const rightArrow = document.querySelector('#right-arrow');
-const leftArrow = document.querySelector('#left-arrow');
 
-rightArrow.addEventListener('click', scrollToLeft);
-leftArrow.addEventListener('click', scrollToRight);
+export default renderMoreInfoData;
 
-function scrollToLeft() {
-  moreInfoList.scroll({
-    left: +moreInfoList.scrollLeft + 260,
-    behavior: 'smooth',
-  });
-}
-
-function scrollToRight() {
-  moreInfoList.scroll({
-    left: +moreInfoList.scrollLeft - 260,
-    behavior: 'smooth',
-  });
-}

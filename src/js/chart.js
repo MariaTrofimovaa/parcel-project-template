@@ -2,7 +2,8 @@ import chartTpl from '../templates/chart.hbs';
 import Chart from 'chart.js/auto';
 import { fiveDaysData } from './base/helper.js';
 
-document.querySelector('.fivedays-chart').insertAdjacentHTML('beforeend', chartTpl());
+const chartRef = document.querySelector('.fivedays-chart');
+chartRef.insertAdjacentHTML('beforeend', chartTpl());
 const ctx = document.querySelector('.js-chart').getContext('2d');
 
 // *****
