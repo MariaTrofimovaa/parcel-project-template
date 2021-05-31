@@ -2,7 +2,7 @@ import fiveDaysTpl from '../templates/fiveDays.hbs';
 import arrowLeft from '../images/arrowLeft.png';
 import arrowRight from '../images/arrowRight.png';
 // import fiveDaysTpl from '../templates/fiveDays.hbs';
-import apiService from '../js/apiService.js';
+import apiService from './base/apiService.js';
 import { renderFiveDays } from '../js/base/helper.js';
 
 // apiService.getData('forecast').then(data => {
