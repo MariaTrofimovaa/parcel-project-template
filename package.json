@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "homepage": "https://MariaTrofimovaa.github.io/parcel-project-template",
-  
   "scripts": {
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /parcel-project-template/"
@@ -29,7 +28,7 @@
   "dependencies": {
     "chart.js": "^3.3.0",
     "config.json": "0.0.4",
-    "moment-timezone": "^0.5.33"
-
+    "moment-timezone": "^0.5.33",
+    "siema": "^1.5.1"
   }
 }
