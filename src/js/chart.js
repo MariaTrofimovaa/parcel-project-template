@@ -30,7 +30,7 @@ function renderChartData() {
   const сhartWindSpeed = fiveDaysData.map(e => e.wind);
   // 5. Получаем давление
   const сhartPressure = fiveDaysData.map(e => e.pressure);
-
+  console.log(ctx);
   chart = new Chart(ctx, {
     type: 'line',
     data: {
