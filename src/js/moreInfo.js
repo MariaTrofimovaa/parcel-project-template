@@ -1,8 +1,6 @@
 import moreInfoTpl from '../templates/moreInfo.hbs';
-import apiService from './apiService.js';
+// import apiService from './base/apiService.js';
 import { renderFiveDays, fiveDaysData } from './base/helper.js';
-
-// import refs from '../refs';
 
 const moreInfoWeather = document.querySelector('.more-info-weather');
 

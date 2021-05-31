@@ -26,108 +26,18 @@
         </li>
       </ul>
     </li>
-
   {{/each}}
-  {{!-- <li class='five-days-weather-item'>
-    <ul class='five-days-weather-more-list'>
-      <li class='five-days-weather-more-item'>Sunday</li>
-      <li class='five-days-weather-more-item2'>09 Feb</li>
-      <li class='five-days-weather-more-item'>
-        <img src='{{icon}}' alt='' class='picture' />
-      </li>
-      <li class='five-days-weather-more-item'>
-        <ul class='nim-max-temperature'>
-          <li class='min-temperature'>
-            <p class='min-temperature-item fiveday'>min</p>
-            <p class='min-temperature-item2 fiveday'>{{main.temp_min}}</p>
-          </li>
-          <li class='max-temperature'>
-            <p class='max-temperature-item fiveday'>max</p>
-            <p class='max-temperature-item2 fiveday'>{{main.temp_max}}</p>
-          </li>
-        </ul>
-      </li>
-      <li class='five-days-weather-more-item'><a class='show-more-info'>more info</a></li>
-    </ul>
-  </li>
-  <li class='five-days-weather-item'>
-    <ul class='five-days-weather-more-list'>
-      <li class='five-days-weather-more-item'>Sunday</li>
-      <li class='five-days-weather-more-item2'>09 Feb</li>
-      <li class='five-days-weather-more-item'>
-        <img src='{{icon}}' alt='' class='picture' />
-      </li>
-      <li class='five-days-weather-more-item'>
-        <ul class='nim-max-temperature'>
-          <li class='min-temperature'>
-            <p class='min-temperature-item fiveday'>min</p>
-            <p class='min-temperature-item2 fiveday'>{{main.temp_min}}</p>
-          </li>
-          <li class='max-temperature'>
-            <p class='max-temperature-item fiveday'>max</p>
-            <p class='max-temperature-item2 fiveday'>{{main.temp_max}}</p>
-          </li>
-        </ul>
-      </li>
-      <li class='five-days-weather-more-item'><a class='show-more-info'>more info</a></li>
-    </ul>
-  </li>
-  <li class='five-days-weather-item'>
-    <ul class='five-days-weather-more-list'>
-      <li class='five-days-weather-more-item'>Sunday</li>
-      <li class='five-days-weather-more-item2'>09 Feb</li>
-      <li class='five-days-weather-more-item'>
-        <img src='{{icon}}' alt='' class='picture' />
-      </li>
-      <li class='five-days-weather-more-item'>
-        <ul class='nim-max-temperature'>
-          <li class='min-temperature'>
-            <p class='min-temperature-item fiveday'>min</p>
-            <p class='min-temperature-item2 fiveday'>{{main.temp_min}}</p>
-          </li>
-          <li class='max-temperature'>
-            <p class='max-temperature-item fiveday'>max</p>
-            <p class='max-temperature-item2 fiveday'>{{main.temp_max}}</p>
-          </li>
-        </ul>
-      </li>
-      <li class='five-days-weather-more-item'><a class='show-more-info'>more info</a></li>
-    </ul>
-  </li>
-  <li class='five-days-weather-item'>
-    <ul class='five-days-weather-more-list'>
-      <li class='five-days-weather-more-item'>Sunday</li>
-      <li class='five-days-weather-more-item2'>09 Feb</li>
-      <li class='five-days-weather-more-item'>
-        <img src='{{icon}}' alt='' class='picture' />
-      </li>
-      <li class='five-days-weather-more-item'>
-        <ul class='nim-max-temperature'>
-          <li class='min-temperature'>
-            <p class='min-temperature-item fiveday'>min</p>
-            <p class='min-temperature-item2 fiveday'>{{main.temp_min}}</p>
-          </li>
-          <li class='max-temperature'>
-            <p class='max-temperature-item fiveday'>max</p>
-            <p class='max-temperature-item2 fiveday'>{{main.temp_max}}</p>
-          </li>
-        </ul>
-      </li>
-      <li class='five-days-weather-more-item'><a class='show-more-info'>more info</a></li>
-    </ul>
-  </li> --}}
+
 </ul>
 <ul class='arrow'>
   <li class='arrow-item arrow-item-left'>
-    {{! <svg width='30' height='30'>
-      <use href='../images/arrowLeft.svg'></use>
-    </svg> }}
-    <img src='{{arrowLeft}}' alt='стрелка влево' />
+    <button class='arrowBtn left-btn' type='button'>
+      <img src='{{arrowLeft}}' alt='стрелка влево' />
+    </button>
   </li>
   <li class='arrow-item arrow-item-right'>
-    {{!-- <svg width='30' height='30'>
-      <use href='{{arrowRight}}'></use>
-    </svg> --}}
-    <img src='{{arrowRight}}' alt='стрелка вправо' />
+    <button class='arrowBtn right-btn' type='button'>
+      <img src='{{arrowRight}}' alt='стрелка вправо' />
+    </button>
   </li>
 </ul>

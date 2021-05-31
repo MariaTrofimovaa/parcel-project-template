@@ -1,5 +1,5 @@
 import calendarTpl from '../templates/calendar.hbs';
-import apiService from '../js/apiService.js';
+import apiService from './base/apiService.js';
 import sunriseIcon from '../images/sunrise.svg';
 import sunsetIcon from '../images/sunset.svg';
 // import refs from '../js/base/refs.js';
@@ -8,7 +8,6 @@ import sunsetIcon from '../images/sunset.svg';
 // date.innerHTML = calenarTpl(weatsherParams);
 
 let timerId = null;
-
 
 //   function pad(value) {
 //     return String(value).padStart(2, '0');
@@ -70,7 +69,6 @@ function renderCalendar() {
       return String(value).padStart(2, '0');
     }
 
-
     const ending = function (day) {
       if (day > 3 && day < 21) return 'th';
       switch (day % 10) {
@@ -110,7 +108,7 @@ function renderCalendar() {
 
     timerId = setInterval(() => {
       // const localDate = new Date();
-      
+
       const dateUTC = new Date(Date.now() + new Date().getTimezoneOffset() * 60 * 1000);
       const date = new Date(dateUTC.getTime() + data.timezone * 1000);
       const day = date.getDate();

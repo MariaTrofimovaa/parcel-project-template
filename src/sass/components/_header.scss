@@ -8,7 +8,6 @@
   position: relative;
   align-items: center;
   border-radius: 30px;
-  //   border: 1px solid $main-white-color;
   margin-bottom: 14px;
 
   &::before {
@@ -58,46 +57,75 @@
   }
 }
 
+.favorite-box {
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+
+  img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.city-list {
+  display: flex;
+  align-items: center;
+  // justify-content: space-around;
+  position: relative;
+  overflow: hidden;
+  margin-right: 10px;
+  opacity: 0.4;
+}
+
+.fav-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0)
+}
+
 .search-location__slider {
   display: flex;
   align-items: center;
   justify-content: space-around;
   position: relative;
 
-  &-btnPrev,
-  &-btnNext {
-    opacity: 0.471;
-    width: 28px;
-    height: 28px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition: opacity 200ms linear;
-    outline: none;
-    position: absolute;
+  // &-btnPrev,
+  // &-btnNext {
+  //   opacity: 0.471;
+  //   width: 28px;
+  //   height: 28px;
+  //   background-color: #ffffff;
+  //   border-radius: 50%;
+  //   border: none;
+  //   cursor: pointer;
+  //   padding: 0;
+  //   transition: opacity 200ms linear;
+  //   outline: none;
+  //   position: absolute;
 
-    &:hover,
-    &:hover svg {
-      opacity: 1;
-    }
+  //   &:hover,
+  //   &:hover svg {
+  //     opacity: 1;
+  //   }
 
-    & svg {
-      fill: #000000;
-      transition: opacity 200ms linear;
-      width: 80%;
-      height: 80%;
-    }
-  }
+  //   & svg {
+  //     fill: #000000;
+  //     transition: opacity 200ms linear;
+  //     width: 80%;
+  //     height: 80%;
+  //   }
+  // }
 
-  &-btnPrev {
-    left: 0;
-  }
+  // &-btnPrev {
+  //   left: 0;
+  // }
 
-  &-btnNext {
-    right: 0;
-  }
+  // &-btnNext {
+  //   right: 0;
+  // }
 
   &-list {
     list-style: none;
@@ -111,16 +139,18 @@
     display: block;
     height: 100%;
     width: 12px;
-    // fill: $main-white-color;
   }
 
   &-list-item {
     border-radius: 12px;
     background-color: rgb(16, 33, 54);
-    opacity: 0.471;
+    // opacity: 0.471;
     padding: 5px 5px 5px 10px;
     transition: opacity 200ms linear;
     width: 86px;
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
   }
 
   &-list-item:hover,
@@ -130,14 +160,12 @@
 
   &-list-content {
     display: flex;
-    // color: $main-white-color;
     font-size: 12px;
     justify-content: space-around;
   }
 
   &-list-sity {
     cursor: pointer;
-    // font-family: $main-font;
     font-weight: 400;
     font-size: 12px;
   }
@@ -147,13 +175,11 @@
     display: block;
     width: 100%;
     height: 1px;
-    // background-color: $main-white-color;
     margin-bottom: 1px;
   }
 
   &-list-content-renove-city__button {
     background-color: transparent;
-    // background-image: url(img/icons/cross.svg);
     background-repeat: no-repeat;
     background-size: 10px;
     background-position: center;
@@ -166,7 +192,13 @@
   }
 }
 
+
+
 @media (min-width: 768px) {
+  .favorite-box {
+    padding-right: 150px;
+    padding-left: 150px;
+  }
   .input-box {
     padding-top: 60px;
     padding-right: 134px;
@@ -184,9 +216,16 @@
 }
 
 @media (min-width: 1280px) {
+  .favorite-box {
+    padding-right: 400px;
+    padding-left: 400px;
+    // justify-content: space-between;
+  }
+
   .input-box {
     padding-top: 79px;
     padding-right: 380px;
     padding-left: 380px;
   }
 }
+

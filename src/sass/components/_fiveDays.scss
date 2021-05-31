@@ -11,14 +11,14 @@
 }
 
 .five-days-weather-list {
-  overflow-x: auto;
+  overflow: hidden;
   display: flex;
   margin-bottom: 15px;
 }
 
 .arrow {
   display: flex;
-  margin-left: 90px;
+  margin-left: 80px;
 }
 
 .show-chart-list {
@@ -56,6 +56,7 @@
 }
 
 .arrow-item-left {
+  opacity: 0.5;
   margin-right: 50px;
 }
 
@@ -70,7 +71,7 @@
 
 .arrow-item-left:hover,
 .arrow-item-left:focus {
-  opacity: 2;
+  color: #fff;
 }
 
 .min-temperature-item.fiveday,
@@ -88,6 +89,7 @@
   line-height: 1.66;
   opacity: 0.3;
   text-decoration: underline;
+  border: none;
 }
 
 .min-temperature-item2.fiveday,
@@ -96,6 +98,11 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 1.21;
+}
+
+.arrowBtn {
+  background-color: transparent;
+  border: none;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
