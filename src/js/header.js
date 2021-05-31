@@ -3,6 +3,7 @@ import updateButtons from '../templates/favoriteElem.hbs';
 import renderOneDay from './oneDay.js';
 import renderFiveDay from './fiveDays.js';
 import renderCalendar from './calendar.js';
+import renderChartData from './chart.js';
 import setBgImages from './components/bg-service.js';
 
 // console.log(renderOneDay);
@@ -29,7 +30,7 @@ function setQuery(evt) {
   renderOneDay();
   renderCalendar();
   renderFiveDay();
-  // onHideChartClick();
+  renderChartData();
   setBgImages();
 }
 

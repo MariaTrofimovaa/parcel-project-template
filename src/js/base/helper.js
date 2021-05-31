@@ -129,7 +129,6 @@ const renderFiveDays = data => {
   }); // получаем массив с объектами -> там данные на каждый из 5 дней
 
   fiveDaysData = weatherParams;
-  console.log(fiveDaysData);
 
   const finalData = {
     city: data.city.name,
