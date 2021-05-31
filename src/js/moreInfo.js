@@ -59,14 +59,14 @@ leftArrow.addEventListener('click', scrollToRight);
 
 function scrollToLeft() {
   moreInfoList.scroll({
-    left: 260,
+    left: +moreInfoList.scrollLeft + 260,
     behavior: 'smooth',
   });
 }
 
 function scrollToRight() {
   moreInfoList.scroll({
-    left: -1,
+    left: +moreInfoList.scrollLeft - 260,
     behavior: 'smooth',
   });
 }
