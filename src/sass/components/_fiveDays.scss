@@ -100,12 +100,13 @@
   line-height: 1.21;
 }
 
+
+@media screen and (min-width: 768px) {
+
 .arrowBtn {
   background-color: transparent;
   border: none;
 }
-
-@media screen and (min-width: 768px) and (max-width: 1279px) {
   .fivedays-weather {
     width: 620px;
     text-align: center;
@@ -135,10 +136,6 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 1.22;
-  }
-
-  .nim-max-temperature {
-    margin-bottom: 20px;
   }
 
   .min-temperature-item,
