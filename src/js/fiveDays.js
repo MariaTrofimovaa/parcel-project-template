@@ -1,9 +1,11 @@
 import fiveDaysTpl from '../templates/fiveDays.hbs';
 import arrowLeft from '../images/arrowLeft.png';
 import arrowRight from '../images/arrowRight.png';
-// import fiveDaysTpl from '../templates/fiveDays.hbs';
 import apiService from './base/apiService.js';
 import { renderFiveDays } from '../js/base/helper.js';
+import moreInfoWeather from './moreInfo.js';
+import arrowRigfhtInfo from '../images/arrow-right-info.png';
+import arrowLeftInfo from '../images/arrow-left-info.png';
 
 // apiService.getData('forecast').then(data => {
 //   document.querySelector('.fivedays-weather').innerHTML = fiveDaysTpl(data);
@@ -14,11 +16,15 @@ function renderFiveDay() {
     .getData('forecast')
     .then(data => {
       const renderData = renderFiveDays(data);
+
       const tplDate = {
         arrowLeft,
         arrowRight,
+        arrowRigfhtInfo,
+        arrowLeftInfo,
         ...renderData,
       };
+
 
       // .querySelector('.fivedays-weather')
       // .insertAdjacentHTML('afterbegin', fiveDaysTpl(tplDate));
@@ -32,7 +38,7 @@ function renderFiveDay() {
       function scrollToRight(e) {
         console.log(e.target);
         container.scroll({
-          left: 2000,
+          left: 200,
           behavior: 'smooth',
         });
       }
@@ -45,11 +51,24 @@ function renderFiveDay() {
           behavior: 'smooth',
         });
       }
+
+      // document
+      //   .querySelector('.fivedays-weather')
+      //   .insertAdjacentHTML('afterbegin', fiveDaysTpl(tplDate));
+      document.querySelector('.fivedays-weather').innerHTML = fiveDaysTpl(tplDate);
+      moreInfoWeather();
+      // initEvtFiveDays();
+      // console.log(data);
+
     })
     .catch(error => {
       console.log(error);
     });
 }
+
+// function initEvents() {
+
+// }
 
 // apiService.getData('forecast').then(data => {
 //   const renderData = renderFiveDays(data);
