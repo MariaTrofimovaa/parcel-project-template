@@ -25,6 +25,33 @@ function renderFiveDay() {
         ...renderData,
       };
 
+
+      // .querySelector('.fivedays-weather')
+      // .insertAdjacentHTML('afterbegin', fiveDaysTpl(tplDate));
+      document.querySelector('.fivedays-weather').innerHTML = fiveDaysTpl(tplDate);
+      const arrowLeftBtn = document.querySelector('.left-btn');
+      const arrowRightBtn = document.querySelector('.right-btn');
+      const container = document.querySelector('.five-days-weather-list');
+
+      arrowRightBtn.addEventListener('click', scrollToRight);
+
+      function scrollToRight(e) {
+        console.log(e.target);
+        container.scroll({
+          left: 200,
+          behavior: 'smooth',
+        });
+      }
+
+      arrowLeftBtn.addEventListener('click', scrollToLeft);
+      function scrollToLeft(e) {
+        console.log(e.target);
+        container.scroll({
+          left: -200,
+          behavior: 'smooth',
+        });
+      }
+
       // document
       //   .querySelector('.fivedays-weather')
       //   .insertAdjacentHTML('afterbegin', fiveDaysTpl(tplDate));
@@ -32,6 +59,7 @@ function renderFiveDay() {
       moreInfoWeather();
       // initEvtFiveDays();
       // console.log(data);
+
     })
     .catch(error => {
       console.log(error);
