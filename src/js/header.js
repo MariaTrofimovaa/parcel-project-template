@@ -84,6 +84,7 @@ const saveLocalStorage = () => {
 updateView();
 
 favoriteBtnRef.addEventListener('click', saveLocalStorage);
+
 // searchbox.addEventListener('submit', saveLocalStorage);
 
 // * Localstorage
