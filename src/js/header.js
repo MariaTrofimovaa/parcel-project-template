@@ -5,14 +5,22 @@ import renderFiveDay from './fiveDays.js';
 import renderCalendar from './calendar.js';
 import renderChartData from './chart.js';
 import setBgImages from './components/bg-service.js';
-
-// console.log(renderOneDay);
-// import updateOneDay from '../template/oneDay.hbs';
+import Siema from 'siema';
+import favoriteCity from '../templates/favoriteCity.hbs'
 
 const searchbox = document.querySelector('.input-form');
 const inputRef = document.querySelector('.search-box');
 const favoriteBtnRef = document.querySelector('.favorite-btn');
 const favListRef = document.querySelector('.city-list');
+const favCloseBtn = document.querySelector(
+  '.search-location__slider-list-content-renove-city__button'
+);
+const sliderBtnLeft = document.querySelector('.fav-btn.left');
+const sliderBtnRight = document.querySelector('.fav-btn.right');
+
+
+sliderBtnLeft.addEventListener('click', () => mySiema.prev());
+sliderBtnRight.addEventListener('click', () => mySiema.next());
 
 inputRef.addEventListener('input', function () {
   if (this.value) {
@@ -25,8 +33,7 @@ function setQuery(evt) {
   evt.preventDefault();
   const inputValue = inputRef.value;
   apiServise.query = inputValue;
-  // console.log(inputValue);
-  // функция для рендера одного дня
+
   renderOneDay();
   renderCalendar();
   renderFiveDay();
@@ -53,14 +60,32 @@ const storage = {
   cityArray: [],
 };
 
+
 const savedArray = JSON.parse(localStorage.getItem('City'));
 if (savedArray) {
   storage.cityArray = savedArray;
 }
 
+let mySiema;
+
 const updateView = () => {
   favListRef.innerHTML = updateButtons(storage.cityArray);
+
+  mySiema = new Siema({
+    selector: '.city-list',
+    perPage: {
+      279: 2,
+      768: 4,
+      1119: 4,
+    },
+    duration: 200,
+    draggable: false,
+    multipleDrag: false,
+    threshold: 20,
+    loop: false,
+  });
 };
+
 
 const saveLocalStorage = () => {
   // значение инпута записал в переменную
@@ -76,6 +101,12 @@ const saveLocalStorage = () => {
   // т.к.типо один и тот же ключ, ниже альтернатива которая к ключу типо добавляет время и делает его
   // уникальным, пока не предумал как это использовать
   localStorage.setItem('City', JSON.stringify(storage.cityArray));
+
+  inputRef.value = '';
+  const div = document.createElement('div');
+  div.classList.add('search-city__slider-list-item');
+  div.innerHTML = favoriteCity(inputValue);
+  mySiema.append(div);
   //альтернатива, можете раскоментить и посмотреть что происходит =\
   // localStorage.setItem('city_' + new Date().getTime(), JSON.stringify(storage.cityArray));
   updateView();
@@ -84,6 +115,43 @@ const saveLocalStorage = () => {
 updateView();
 
 favoriteBtnRef.addEventListener('click', saveLocalStorage);
+
+favListRef.addEventListener('click', addInputValueFromList);
+
+// функция
+function addInputValueFromList(event) {
+  if (event.target.nodeName === 'BUTTON') {
+    const nameLiCity = event.path[1].childNodes[1].textContent;
+    const indexCurrentCity = storage.cityArray.indexOf(nameLiCity);
+
+    storage.cityArray.splice(indexCurrentCity, 1);
+    localStorage.setItem('City', JSON.stringify(storage.cityArray));
+
+    mySiema.remove(indexCurrentCity);
+
+    updateView(storage.cityArray);
+  }
+
+  if (event.target.nodeName === 'P') {
+    apiServise.query = event.path[1].childNodes[1].textContent;
+    renderOneDay();
+    setBgImages();
+    renderFiveDay();
+    setTimeout(() => {
+      destroy();
+      renderChartData();
+    }, 300);
+  }
+}
+
+
+
+
+// renderOneDay();
+//   renderCalendar();
+//   renderFiveDay();
+//   renderChartData();
+//   setBgImages();
 
 // searchbox.addEventListener('submit', saveLocalStorage);
 

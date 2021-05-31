@@ -69,13 +69,14 @@
 }
 
 .city-list {
-  display: flex;
+  // display: flex;
   align-items: center;
   // justify-content: space-around;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   margin-right: 10px;
   opacity: 0.4;
+  width: 230px;
 }
 
 .fav-btn {
@@ -195,6 +196,10 @@
 
 
 @media (min-width: 768px) {
+  .city-list {
+    width: 420px;
+  }
+
   .favorite-box {
     padding-right: 150px;
     padding-left: 150px;
@@ -216,6 +221,10 @@
 }
 
 @media (min-width: 1280px) {
+  .city-list {
+    width: 440px;
+  }
+
   .favorite-box {
     padding-right: 400px;
     padding-left: 400px;
