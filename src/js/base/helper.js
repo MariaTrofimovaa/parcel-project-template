@@ -152,6 +152,7 @@ const renderFiveDays = data => {
   });
 
   fiveDaysData = weatherParams;
+  console.log(fiveDaysData);
 
   const finalData = {
     city: data.city.name,
