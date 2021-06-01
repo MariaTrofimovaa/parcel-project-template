@@ -1,3 +1,13 @@
+function renderRandomQuote() {
+  const quotesText = document.querySelector('.quote');
+  const quoteAuthor = document.querySelector('.quote-author');
+
+  const item = quotes[Math.floor(Math.random() * quotes.length)];
+
+  quotesText.textContent = item.text;
+  quoteAuthor.textContent = item.author;
+}
+
 const quotes = [
   {
     number: 1,
@@ -236,14 +246,4 @@ const quotes = [
   },
 ];
 
-function renderRandomQuote() {
-  const quotesText = document.querySelector('.quote');
-  const quoteAuthor = document.querySelector('.quote-author');
-
-  const item = quotes[Math.floor(Math.random() * quotes.length)];
-
-  quotesText.textContent = item.text;
-  quoteAuthor.textContent = item.author;
-}
-
-renderRandomQuote();
+export default renderRandomQuote();

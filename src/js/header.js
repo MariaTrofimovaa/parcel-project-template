@@ -4,7 +4,7 @@ import renderOneDay from './oneDay.js';
 import renderFiveDay from './fiveDays.js';
 import renderCalendar from './calendar.js';
 import onHideChartClick from './chart.js';
-import { setBgImages, setGeoLocationImg, setGeo, errorGeo } from '../js/components/bg-service.js';
+import { setBgImages, setGeoLocationImg } from '../js/components/bg-service.js';
 import Siema from 'siema';
 import favoriteCity from '../templates/favoriteCity.hbs';
 
@@ -35,7 +35,6 @@ function setQuery(evt) {
   renderCalendar();
   renderFiveDay();
   onHideChartClick();
-  // renderChartData();
   setBgImages();
 }
 
@@ -179,10 +178,6 @@ function addInputValueFromList(event) {
     renderFiveDay();
     onHideChartClick();
     renderCalendar();
-    // setTimeout(() => {
-    //   destroy();
-    //   renderChartData();
-    // }, 500);
   }
 }
 
