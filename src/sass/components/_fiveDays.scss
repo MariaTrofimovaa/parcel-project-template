@@ -100,13 +100,11 @@
   line-height: 1.21;
 }
 
-
 @media screen and (min-width: 768px) {
-
-.arrowBtn {
-  background-color: transparent;
-  border: none;
-}
+  .arrowBtn {
+    background-color: transparent;
+    border: none;
+  }
   .fivedays-weather {
     width: 620px;
     text-align: center;
