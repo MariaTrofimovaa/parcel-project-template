@@ -3,10 +3,9 @@ import arrowLeft from '../images/arrowLeft.png';
 import arrowRight from '../images/arrowRight.png';
 import apiService from './base/apiService.js';
 import { renderFiveDays } from '../js/base/helper.js';
-import moreInfoWeather from './moreInfo.js';
+import { initEvtFiveDays } from './moreInfo.js';
 import arrowRigfhtInfo from '../images/arrow-right-info.png';
 import arrowLeftInfo from '../images/arrow-left-info.png';
-import renderChartData from './chart.js';
 
 function renderFiveDay() {
   return apiService
@@ -27,7 +26,8 @@ function renderFiveDay() {
       const arrowRightBtn = document.querySelector('.right-btn');
       const container = document.querySelector('.five-days-weather-list');
 
-      // renderChartData();
+      initEvtFiveDays();
+
       arrowRightBtn.addEventListener('click', scrollToRight);
 
       function scrollToRight(e) {
@@ -44,8 +44,6 @@ function renderFiveDay() {
           behavior: 'smooth',
         });
       }
-
-      moreInfoWeather();
     })
     .catch(error => {
       console.log(error);

@@ -64,8 +64,7 @@ div.search-location__slider-list-item {
 .favorite-box {
   display: flex;
   align-items: center;
-  display: flex;
-  justify-content: center;
+  justify-content: space-between;
 
   img {
     width: 4px;
@@ -84,19 +83,19 @@ div.search-location__slider-list-item {
   border: none;
 }
 
-.left {
-  margin-right: 14px;
-}
+// .left {
+//   margin-right: 14px;
+// }
 
-.right {
-  margin-left: 14px;
-}
+// .right {
+//   margin-left: 14px;
+// }
 
 .city-list {
   // display: flex;
-  align-items: center;
+  // align-items: center;
   // justify-content: space-around;
-  position: relative;
+  // position: relative;
   // overflow: hidden;
   // margin-right: 10px;
   opacity: 0.4;
@@ -132,9 +131,9 @@ div.search-location__slider-list-item {
     padding: 5px 12px 5px 12px;
     transition: opacity 200ms linear;
     // width: 86px;
-    &:not(:last-child) {
-      margin-right: 10px;
-    }
+    // &:not(:last-child) {
+    //   margin-right: 10px;
+    // }
   }
 
   &-list-item:hover,

@@ -29,7 +29,9 @@ function onShowChartClick() {
 function onHideChartClick() {
   chartBox.classList.remove('visible');
   boxOfShowChart.classList.remove('none');
-  chart.destroy();
+  if (chart) {
+    chart.destroy();
+  }
 }
 
 // *****
@@ -59,7 +61,7 @@ function onHideChartClick() {
 
 // // *****
 
-let chart = {};
+let chart = null;
 
 function getChartData() {
   // renderChartData();
@@ -169,8 +171,8 @@ function getChartData() {
   // initEvtFiveDays();
 }
 
-function renderChartData() {
-  getChartData();
-}
+// function renderChartData() {
+//   getChartData();
+// }
 
-export default renderChartData;
+export default onHideChartClick;

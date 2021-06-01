@@ -69,5 +69,4 @@ function hourConverter(UNIX) {
   return CurrentHour;
 }
 
-export default renderMoreInfoData;
-
+export { initEvtFiveDays };
