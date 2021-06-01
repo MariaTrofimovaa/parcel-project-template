@@ -1,9 +1,10 @@
 div.search-location__slider-list-item {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 .input-box {
   padding-top: 30px;
+  margin: 0 auto;
 }
 
 .input-form {
@@ -85,21 +86,15 @@ div.search-location__slider-list-item {
 }
 
 .left {
-  margin-right: 14px;
+  margin-right: 4px;
 }
 
 .right {
-  margin-left: 5px;
+  margin-left: 4px;
 }
 
 .city-list {
-  // display: flex;
-  // align-items: center;
-  // justify-content: space-around;
-  // position: relative;
-  // overflow: hidden;
-  // margin-right: 10px;
-  opacity: 0.4;
+  opacity: 0.7;
   width: 230px;
 }
 
@@ -188,18 +183,26 @@ div.search-location__slider-list-item {
 }
 
 @media (min-width: 768px) {
+
+  .left {
+    margin-right: 10px;
+}
+
+  .right {
+    margin-left: 6px;
+  }
+
   .city-list {
     width: 420px;
   }
 
   .favorite-box {
-    padding-right: 150px;
-    padding-left: 150px;
+    padding-right: 121px;
+    padding-left: 121px;
   }
   .input-box {
+    width: 510px;
     padding-top: 60px;
-    padding-right: 134px;
-    padding-left: 134px;
   }
 
   .search-box {
@@ -213,19 +216,20 @@ div.search-location__slider-list-item {
 }
 
 @media (min-width: 1280px) {
+  .input-box {
+    padding: 79px 0 0 0;
+  }
+
   .city-list {
     width: 440px;
   }
 
   .favorite-box {
-    padding-right: 400px;
-    padding-left: 400px;
+    width: 520px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 92px;
-  }
-
-  .input-box {
-    padding-top: 79px;
-    padding-right: 380px;
-    padding-left: 380px;
+    padding-right: 0;
+    padding-left: 0;
   }
 }
