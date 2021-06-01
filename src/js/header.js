@@ -3,7 +3,7 @@ import updateButtons from '../templates/favoriteElem.hbs';
 import renderOneDay from './oneDay.js';
 import renderFiveDay from './fiveDays.js';
 import renderCalendar from './calendar.js';
-import renderChartData from './chart.js';
+import onHideChartClick from './chart.js';
 import { setBgImages, setLocationImg } from './components/bg-service.js';
 import Siema from 'siema';
 import favoriteCity from '../templates/favoriteCity.hbs';
@@ -34,6 +34,7 @@ function setQuery(evt) {
   renderOneDay();
   renderCalendar();
   renderFiveDay();
+  onHideChartClick();
   // renderChartData();
   setBgImages();
 }
@@ -65,13 +66,12 @@ let mySiema;
 
 const updateView = () => {
   favListRef.innerHTML = updateButtons(storage.cityArray);
-
   mySiema = new Siema({
     selector: '.city-list',
     perPage: {
-      279: 2,
+      300: 2,
       768: 4,
-      1119: 4,
+      1280: 4,
     },
     duration: 200,
     draggable: false,
@@ -100,12 +100,16 @@ favoriteBtnRef.addEventListener('click', () => {
 if (widthOfScreen < 768) {
   if (storage.cityArray.length <= 2) {
     sliderBtnRight.hidden = true;
+  } else {
+    sliderBtnRight.hidden = false;
   }
 }
 
 if (widthOfScreen >= 768) {
   if (storage.cityArray.length <= 4) {
     sliderBtnRight.hidden = true;
+  } else {
+    sliderBtnRight.hidden = false;
   }
 }
 
@@ -155,6 +159,9 @@ function addInputValueFromList(event) {
     if (storage.cityArray.length <= 2) {
       sliderBtnRight.hidden = true;
       sliderBtnLeft.hidden = true;
+    } else {
+      sliderBtnRight.hidden = false;
+      sliderBtnLeft.hidden = false;
     }
   }
 
@@ -170,6 +177,7 @@ function addInputValueFromList(event) {
     setBgImages();
     setLocationImg();
     renderFiveDay();
+    onHideChartClick();
     // setTimeout(() => {
     //   destroy();
     //   renderChartData();
