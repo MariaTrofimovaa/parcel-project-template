@@ -13,8 +13,8 @@ const inputRef = document.querySelector('.search-box');
 const favoriteBtnRef = document.querySelector('.favorite-btn');
 const favListRef = document.querySelector('.city-list');
 
-const sliderBtnLeft = document.querySelector('.fav-btn.left');
-const sliderBtnRight = document.querySelector('.fav-btn.right');
+const sliderBtnLeft = document.querySelector('.left');
+const sliderBtnRight = document.querySelector('.right');
 
 sliderBtnLeft.addEventListener('click', () => mySiema.prev());
 sliderBtnRight.addEventListener('click', () => mySiema.next());
