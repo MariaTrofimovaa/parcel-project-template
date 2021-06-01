@@ -19,41 +19,39 @@ const setGeoLocationImg = newLocation => {
   location = newLocation;
 };
 
-// *************************** geilocation
+// Определяем текущую геолокацию пользователя через API
 
-navigator.geolocation.getCurrentPosition(setGeo, errorGeo);
-// console.log(navigator);
-// console.log(navigator.geolocation);
+// navigator.geolocation.getCurrentPosition(setGeo, errorGeo);
 
-function errorGeo() {
-  renderOneDay();
-  renderFiveDay();
-  setGeoLocationImg();
-  setBgImages();
-}
+// function setGeo(position) {
+//   console.log(position);
+//   const apikey = '40432aa1d5b1494da80f0c0da6b0db8a';
 
-function setGeo(position) {
-  console.log(position);
-  const apikey = '40432aa1d5b1494da80f0c0da6b0db8a';
+//   fetch(
+//     `https://api.opencagedata.com/geocode/v1/json?q=${position.coords.latitude}+${position.coords.longitude}&key=${apikey}`,
+//   )
+//     .then(response => {
+//       if (response.ok) {
+//         return response.json();
+//       }
+//       return Promise.reject(`Ошибка! Такого города нет в списке!`);
+//     })
+//     .then(data => {
+//       const currentCity = data.results[0].components.city;
+//       console.log(currentCity);
 
-  fetch(
-    `https://api.opencagedata.com/geocode/v1/json?q=${position.coords.latitude}+${position.coords.longitude}&key=${apikey}`,
-  )
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      return Promise.reject(`Ошибка! Такого города нет в списке!`);
-    })
-    .then(data => {
-      const currentCity = data.results[0].components.city;
-      console.log(currentCity);
+//       renderOneDay(currentCity);
+//       renderFiveDay(currentCity);
+//       setGeoLocationImg(currentCity);
+//       setBgImages(currentCity);
+//     });
+// }
 
-      renderOneDay(currentCity);
-      renderFiveDay(currentCity);
-      setGeoLocationImg(currentCity);
-      setBgImages(currentCity);
-    });
-}
+// function errorGeo() {
+//   renderOneDay();
+//   renderFiveDay();
+//   setGeoLocationImg();
+//   setBgImages();
+// }
 
 export { setBgImages, setGeoLocationImg };

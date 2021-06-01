@@ -1,9 +1,6 @@
 import moreInfoTpl from '../templates/moreInfo.hbs';
 import { fiveDaysData } from './base/helper.js';
 
-// const openMoreInfoBtn = document.querySelector('.show-more-info');
-// const fiveDaysWeather = document.querySelector('.fivedays-weather');
-
 const getMoreInfoData = target => {
   const currentDay = target.dataset.day;
   const dayInfo = fiveDaysData.find(({ day }) => day === +currentDay);

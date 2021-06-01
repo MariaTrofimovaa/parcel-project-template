@@ -2,10 +2,6 @@ import calendarTpl from '../templates/calendar.hbs';
 import apiService from './base/apiService.js';
 import sunriseIcon from '../images/sunrise.svg';
 import sunsetIcon from '../images/sunset.svg';
-// import refs from '../js/base/refs.js';
-// import helper from '../js/base/helper.js';
-// const date = document.querySelector('.date');
-// date.innerHTML = calenarTpl(weatsherParams);
 
 let timerId = null;
 
@@ -142,6 +138,18 @@ renderCalendar();
 
 export default renderCalendar;
 
+//
+//
+//
+//
+//
+//
+// import refs from '../js/base/refs.js';
+// import helper from '../js/base/helper.js';
+// const date = document.querySelector('.date');
+// date.innerHTML = calenarTpl(weatsherParams);
+//
+//
 // const date = new Date();
 // const dateUTC = new Date(Date.now() + new Date().getTimezoneOffset() * 60 * 1000);
 // const localDate = new Date(dateUTC.getTime() + api.oneDayData.timezone * 1000);
