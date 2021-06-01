@@ -81,7 +81,6 @@ const updateView = () => {
   });
 };
 
-
 const widthOfScreen = window.innerWidth;
 
 favoriteBtnRef.addEventListener('click', () => {
@@ -109,7 +108,6 @@ if (widthOfScreen >= 768) {
     sliderBtnRight.hidden = true;
   }
 }
-
 
 const saveLocalStorage = () => {
   const inputValue = inputRef.value;
@@ -154,18 +152,17 @@ function addInputValueFromList(event) {
   }
 
   if (widthOfScreen < 768) {
-      if (storage.cityArray.length <= 2) {
-        sliderBtnRight.hidden = true;
-        sliderBtnLeft.hidden = true;
-      }
+    if (storage.cityArray.length <= 2) {
+      sliderBtnRight.hidden = true;
+      sliderBtnLeft.hidden = true;
     }
+  }
 
   if (widthOfScreen >= 768) {
-    if (storage.cityArray.length<= 4) {
+    if (storage.cityArray.length <= 4) {
       sliderBtnRight.hidden = true;
     }
   }
-  
 
   if (event.target.nodeName === 'P') {
     apiServise.query = event.path[1].childNodes[1].textContent;
@@ -173,13 +170,12 @@ function addInputValueFromList(event) {
     setBgImages();
     setLocationImg();
     renderFiveDay();
-    setTimeout(() => {
-      destroy();
-      renderChartData();
-    }, 500);
+    // setTimeout(() => {
+    //   destroy();
+    //   renderChartData();
+    // }, 500);
   }
 }
-
 
 sliderBtnLeft.addEventListener('click', () => {
   mySiema.prev();
