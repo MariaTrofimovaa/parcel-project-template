@@ -178,6 +178,7 @@ function addInputValueFromList(event) {
     setGeoLocationImg();
     renderFiveDay();
     onHideChartClick();
+    renderCalendar();
     // setTimeout(() => {
     //   destroy();
     //   renderChartData();

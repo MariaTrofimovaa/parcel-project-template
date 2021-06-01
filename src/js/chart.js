@@ -34,33 +34,6 @@ function onHideChartClick() {
   }
 }
 
-// *****
-
-// *****
-// const chartBox = document.querySelector('.chart-box');
-// const boxOfShowChart = document.querySelector('.show-chart-box');
-// const hideChartRef = document.querySelector('.hide-chart');
-
-// // ***** Вешаем слушатель события
-// boxOfShowChart.addEventListener('click', onShowChartClick);
-// hideChartRef.addEventListener('click', onHideChartClick);
-
-// // *****
-
-// function onShowChartClick() {
-//   boxOfShowChart.classList.add('none');
-//   chartBox.classList.add('visible');
-//   renderChartData();
-// }
-
-// function onHideChartClick() {
-//   chartBox.classList.remove('visible');
-//   boxOfShowChart.classList.remove('none');
-//   chart.destroy();
-// }
-
-// // *****
-
 let chart = null;
 
 function getChartData() {
@@ -170,9 +143,5 @@ function getChartData() {
   });
   // initEvtFiveDays();
 }
-
-// function renderChartData() {
-//   getChartData();
-// }
 
 export default onHideChartClick;

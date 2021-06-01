@@ -58,6 +58,7 @@ let timerId = null;
 function renderCalendar() {
   clearInterval(timerId);
   apiService.getData('weather').then(data => {
+    // console.log(data);
     const dateUTC = new Date(Date.now() + new Date().getTimezoneOffset() * 60 * 1000);
     const date = new Date(dateUTC.getTime() + data.timezone * 1000);
     const day = date.getDate();
