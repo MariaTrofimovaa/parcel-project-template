@@ -81,15 +81,16 @@ div.search-location__slider-list-item {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
   border: none;
+  cursor: pointer;
 }
 
-// .left {
-//   margin-right: 14px;
-// }
+.left {
+  margin-right: 14px;
+}
 
-// .right {
-//   margin-left: 14px;
-// }
+.right {
+  margin-left: 5px;
+}
 
 .city-list {
   // display: flex;
@@ -144,6 +145,7 @@ div.search-location__slider-list-item {
   &-list-content {
     display: flex;
     font-size: 12px;
+
     justify-content: space-between;
     align-items: center;
   }
@@ -152,6 +154,11 @@ div.search-location__slider-list-item {
     cursor: pointer;
     font-weight: 400;
     font-size: 12px;
+
+    width: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &-list-sity::after {
@@ -167,6 +174,9 @@ div.search-location__slider-list-item {
     background-repeat: no-repeat;
     background-size: 10px;
     background-position: center;
+
+    margin-left: 10px;
+
     border: none;
     cursor: pointer;
     height: 16px;

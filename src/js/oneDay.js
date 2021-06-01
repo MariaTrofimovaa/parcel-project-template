@@ -1,5 +1,6 @@
 import oneDayTpl from '../templates/oneDay.hbs';
 import apiService from './base/apiService.js';
+// import { setBgImages, setGeoLocationImg, setGeo, errorGeo } from '../js/components/bg-service.js';
 
 function renderOneDay() {
   return apiService
@@ -15,7 +16,7 @@ function renderOneDay() {
       };
 
       document.querySelector('.one-day').innerHTML = oneDayTpl(tplDate);
-
+      // setGeo();
       // console.log(tplDate)
     })
     .catch(error => {

@@ -1,6 +1,11 @@
 .fivedays-chart {
+  margin-bottom: 24px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 103px;
+  }
   @media screen and (min-width: 1280px) {
     margin-top: 15px;
+    margin-bottom: 101px;
   }
 }
 .show-chart-box {
@@ -46,7 +51,7 @@
 
 .chart-header {
   margin-top: 20px;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
   padding-right: 14px;
   font-size: 14px;
   line-height: 22px;
@@ -55,10 +60,10 @@
   text-align: center;
   @media screen and (min-width: 768px) {
     font-size: 15px;
-    margin-bottom: 38px;
+    margin-bottom: 30px;
   }
   @media screen and (min-width: 1280px) {
-    margin-bottom: 56px;
+    margin-bottom: 40px;
   }
 }
 

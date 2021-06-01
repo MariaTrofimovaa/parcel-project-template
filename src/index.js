@@ -9,7 +9,7 @@ import './js/buttons.js';
 import './js/oneDay.js';
 import './js/fiveDays.js';
 import './js/moreInfo.js';
-// import './js/chart.js';
+import './js/chart.js';
 
 import './js/components/bg-service.js';
 import './js/components/quotes.js';

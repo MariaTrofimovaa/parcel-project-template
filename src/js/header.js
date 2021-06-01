@@ -4,7 +4,7 @@ import renderOneDay from './oneDay.js';
 import renderFiveDay from './fiveDays.js';
 import renderCalendar from './calendar.js';
 import onHideChartClick from './chart.js';
-import { setBgImages, setLocationImg } from './components/bg-service.js';
+import { setBgImages, setGeoLocationImg, setGeo, errorGeo } from '../js/components/bg-service.js';
 import Siema from 'siema';
 import favoriteCity from '../templates/favoriteCity.hbs';
 
@@ -175,7 +175,7 @@ function addInputValueFromList(event) {
     apiServise.query = event.path[1].childNodes[1].textContent;
     renderOneDay();
     setBgImages();
-    setLocationImg();
+    setGeoLocationImg();
     renderFiveDay();
     onHideChartClick();
     // setTimeout(() => {
