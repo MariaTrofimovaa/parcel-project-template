@@ -4,20 +4,19 @@ import renderOneDay from './oneDay.js';
 import renderFiveDay from './fiveDays.js';
 import renderCalendar from './calendar.js';
 import renderChartData from './chart.js';
-import setBgImages from './components/bg-service.js';
+import { setBgImages, setLocationImg } from './components/bg-service.js';
 import Siema from 'siema';
-import favoriteCity from '../templates/favoriteCity.hbs'
+import favoriteCity from '../templates/favoriteCity.hbs';
 
 const searchbox = document.querySelector('.input-form');
 const inputRef = document.querySelector('.search-box');
 const favoriteBtnRef = document.querySelector('.favorite-btn');
 const favListRef = document.querySelector('.city-list');
 const favCloseBtn = document.querySelector(
-  '.search-location__slider-list-content-renove-city__button'
+  '.search-location__slider-list-content-renove-city__button',
 );
 const sliderBtnLeft = document.querySelector('.fav-btn.left');
 const sliderBtnRight = document.querySelector('.fav-btn.right');
-
 
 sliderBtnLeft.addEventListener('click', () => mySiema.prev());
 sliderBtnRight.addEventListener('click', () => mySiema.next());
@@ -37,7 +36,7 @@ function setQuery(evt) {
   renderOneDay();
   renderCalendar();
   renderFiveDay();
-  renderChartData();
+  // renderChartData();
   setBgImages();
 }
 
@@ -59,7 +58,6 @@ function addFavCityOnList() {
 const storage = {
   cityArray: [],
 };
-
 
 const savedArray = JSON.parse(localStorage.getItem('City'));
 if (savedArray) {
@@ -85,7 +83,6 @@ const updateView = () => {
     loop: false,
   });
 };
-
 
 const saveLocalStorage = () => {
   // значение инпута записал в переменную
@@ -136,6 +133,7 @@ function addInputValueFromList(event) {
     apiServise.query = event.path[1].childNodes[1].textContent;
     renderOneDay();
     setBgImages();
+    setLocationImg();
     renderFiveDay();
     setTimeout(() => {
       destroy();
@@ -143,9 +141,6 @@ function addInputValueFromList(event) {
     }, 300);
   }
 }
-
-
-
 
 // renderOneDay();
 //   renderCalendar();

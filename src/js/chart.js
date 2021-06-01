@@ -2,13 +2,16 @@ import chartTpl from '../templates/chart.hbs';
 import Chart from 'chart.js/auto';
 import { fiveDaysData } from './base/helper.js';
 
+// *****
+
 const chartRef = document.querySelector('.fivedays-chart');
 chartRef.insertAdjacentHTML('beforeend', chartTpl());
 const ctx = document.querySelector('.js-chart').getContext('2d');
+const chartBox = document.querySelector('.chart-box');
 
 // *****
+
 const boxOfShowChart = document.querySelector('.show-chart-box');
-const chartBox = document.querySelector('.chart-box');
 const hideChartRef = document.querySelector('.hide-chart');
 
 // ***** Вешаем слушатель события
@@ -17,8 +20,49 @@ hideChartRef.addEventListener('click', onHideChartClick);
 
 // *****
 
+function onShowChartClick() {
+  boxOfShowChart.classList.add('none');
+  chartBox.classList.add('visible');
+  getChartData();
+}
+
+function onHideChartClick() {
+  chartBox.classList.remove('visible');
+  boxOfShowChart.classList.remove('none');
+  chart.destroy();
+}
+
+// *****
+
+// *****
+// const chartBox = document.querySelector('.chart-box');
+// const boxOfShowChart = document.querySelector('.show-chart-box');
+// const hideChartRef = document.querySelector('.hide-chart');
+
+// // ***** Вешаем слушатель события
+// boxOfShowChart.addEventListener('click', onShowChartClick);
+// hideChartRef.addEventListener('click', onHideChartClick);
+
+// // *****
+
+// function onShowChartClick() {
+//   boxOfShowChart.classList.add('none');
+//   chartBox.classList.add('visible');
+//   renderChartData();
+// }
+
+// function onHideChartClick() {
+//   chartBox.classList.remove('visible');
+//   boxOfShowChart.classList.remove('none');
+//   chart.destroy();
+// }
+
+// // *****
+
 let chart = {};
-function renderChartData() {
+
+function getChartData() {
+  // renderChartData();
   // 1. Получаем число, месяц, год
   const сhartData = fiveDaysData.map(e => {
     return e.month + ' ' + e.day + ', ' + e.year;
@@ -31,7 +75,7 @@ function renderChartData() {
   const сhartWindSpeed = fiveDaysData.map(e => e.wind);
   // 5. Получаем давление
   const сhartPressure = fiveDaysData.map(e => e.pressure);
-  console.log(ctx);
+
   chart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -88,19 +132,6 @@ function renderChartData() {
         },
       },
 
-      // legend: {
-      //   // display: true,
-      //   // align: 'start',
-      //   // position: 'bottom',
-
-      //   labels: {
-      //     boxWidth: 12,
-      //     boxHeight: 12,
-      //     defaultFontColor: 'rgb(5, 120, 6)',
-      //     padding: 10,
-      //   },
-      // },
-
       interaction: {
         mode: 'point',
       },
@@ -135,18 +166,7 @@ function renderChartData() {
       maintainAspectRatio: false,
     },
   });
+  // initEvtFiveDays();
 }
 
-function onShowChartClick() {
-  boxOfShowChart.classList.add('none');
-  chartBox.classList.add('visible');
-  renderChartData();
-}
-
-function onHideChartClick() {
-  chartBox.classList.remove('visible');
-  boxOfShowChart.classList.remove('none');
-  chart.destroy();
-}
-
-export default renderChartData;
+export default { getChartData, onShowChartClick };
