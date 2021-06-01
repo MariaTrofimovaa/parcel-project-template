@@ -45,7 +45,7 @@
         <div class="weather-box">
           <div class="one-day" id="oneday"></div>
           <div class="button-box">
-            <button class="one-day-btn button" id="todayBtn" data-action="today">today</button>
+            <button class="one-day-btn button is-active" id="todayBtn" data-action="today">today</button>
             <button class="five-day-btn button" id="fiveDaysBtn" data-action="fiveDays">
               5 days
             </button>
@@ -62,10 +62,12 @@
           </div>
 
           <div class="more-info-weather">
-            <div class="fivedays-weather"></div>
+            <div class="fivedays-weather" hidden></div>
             </div>
           </div>
-            <div class="fivedays-chart" ></div>
+
+            <div class="fivedays-chart" hidden></div>
+
         </div>
       </div>
     </section>
