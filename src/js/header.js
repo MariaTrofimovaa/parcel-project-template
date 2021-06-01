@@ -4,7 +4,7 @@ import renderOneDay from './oneDay.js';
 import renderFiveDay from './fiveDays.js';
 import renderCalendar from './calendar.js';
 import renderChartData from './chart.js';
-import setBgImages from './components/bg-service.js';
+import { setBgImages, setLocationImg } from './components/bg-service.js';
 import Siema from 'siema';
 import favoriteCity from '../templates/favoriteCity.hbs';
 
@@ -12,6 +12,7 @@ const searchbox = document.querySelector('.input-form');
 const inputRef = document.querySelector('.search-box');
 const favoriteBtnRef = document.querySelector('.favorite-btn');
 const favListRef = document.querySelector('.city-list');
+
 const sliderBtnLeft = document.querySelector('.fav-btn.left');
 const sliderBtnRight = document.querySelector('.fav-btn.right');
 
@@ -33,7 +34,7 @@ function setQuery(evt) {
   renderOneDay();
   renderCalendar();
   renderFiveDay();
-  renderChartData();
+  // renderChartData();
   setBgImages();
 }
 
@@ -79,6 +80,7 @@ const updateView = () => {
     loop: false,
   });
 };
+
 
 const widthOfScreen = window.innerWidth;
 
@@ -169,6 +171,7 @@ function addInputValueFromList(event) {
     apiServise.query = event.path[1].childNodes[1].textContent;
     renderOneDay();
     setBgImages();
+    setLocationImg();
     renderFiveDay();
     setTimeout(() => {
       destroy();
@@ -176,6 +179,7 @@ function addInputValueFromList(event) {
     }, 500);
   }
 }
+
 
 sliderBtnLeft.addEventListener('click', () => {
   mySiema.prev();
