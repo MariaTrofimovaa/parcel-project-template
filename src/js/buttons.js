@@ -5,12 +5,18 @@ const fiveDaysWeather = document.querySelector('.fivedays-weather');
 const buttonBox = document.querySelector('.button-box');
 const fiveDaysBtn = document.getElementById('fiveDaysBtn');
 const todayBtn = document.getElementById('todayBtn');
+const fivedaysChart = document.querySelector('.fivedays-chart');
+const additionalInfo = document.querySelector('.additional-info');
 const screenWidth = window.screen.width;
 
 fiveDaysBtn.onclick = function () {
+  fiveDaysBtn.classList.add('is-active');
+  todayBtn.classList.remove('is-active');
   oneDay.hidden = true;
   currentDate.hidden = true;
   fiveDaysWeather.hidden = false;
+  fivedaysChart.hidden = false;
+  additionalInfo.hidden = true;
 
   if (oneDay.hidden && screenWidth >= 768 && screenWidth < 1280) {
     buttonBox.style.marginTop = '377px';
@@ -21,9 +27,14 @@ fiveDaysBtn.onclick = function () {
   }
 
   todayBtn.onclick = function () {
+    todayBtn.classList.add('is-active');
+    fiveDaysBtn.classList.remove('is-active');
     oneDay.hidden = false;
     currentDate.hidden = false;
     fiveDaysWeather.hidden = true;
+    fivedaysChart.hidden = true;
+    additionalInfo.hidden = false;
+
     if (!oneDay.hidden && screenWidth >= 1280) {
       buttonBox.style.marginTop = '20px';
     } else if (!oneDay.hidden && screenWidth >= 768 && screenWidth < 1280) {

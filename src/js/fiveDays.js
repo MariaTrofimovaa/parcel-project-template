@@ -7,10 +7,6 @@ import moreInfoWeather from './moreInfo.js';
 import arrowRigfhtInfo from '../images/arrow-right-info.png';
 import arrowLeftInfo from '../images/arrow-left-info.png';
 
-// apiService.getData('forecast').then(data => {
-//   document.querySelector('.fivedays-weather').innerHTML = fiveDaysTpl(data);
-//   console.log(data);
-// });
 function renderFiveDay() {
   return apiService
     .getData('forecast')
@@ -25,9 +21,6 @@ function renderFiveDay() {
         ...renderData,
       };
 
-
-      // .querySelector('.fivedays-weather')
-      // .insertAdjacentHTML('afterbegin', fiveDaysTpl(tplDate));
       document.querySelector('.fivedays-weather').innerHTML = fiveDaysTpl(tplDate);
       const arrowLeftBtn = document.querySelector('.left-btn');
       const arrowRightBtn = document.querySelector('.right-btn');
@@ -36,7 +29,6 @@ function renderFiveDay() {
       arrowRightBtn.addEventListener('click', scrollToRight);
 
       function scrollToRight(e) {
-        console.log(e.target);
         container.scroll({
           left: 200,
           behavior: 'smooth',
@@ -45,62 +37,19 @@ function renderFiveDay() {
 
       arrowLeftBtn.addEventListener('click', scrollToLeft);
       function scrollToLeft(e) {
-        console.log(e.target);
         container.scroll({
           left: -200,
           behavior: 'smooth',
         });
       }
 
-      // document
-      //   .querySelector('.fivedays-weather')
-      //   .insertAdjacentHTML('afterbegin', fiveDaysTpl(tplDate));
-      document.querySelector('.fivedays-weather').innerHTML = fiveDaysTpl(tplDate);
       moreInfoWeather();
-      // initEvtFiveDays();
-      // console.log(data);
-
     })
     .catch(error => {
       console.log(error);
     });
 }
 
-// function initEvents() {
-
-// }
-
-// apiService.getData('forecast').then(data => {
-//   const renderData = renderFiveDays(data);
-//   const tplDate = {
-//     arrowLeft,
-//     arrowRight,
-//     ...renderData,
-//   };
-//   document
-//     .querySelector('.fivedays-weather')
-//     .insertAdjacentHTML('afterbegin', fiveDaysTpl(tplDate));
-//   // innerHTML = fiveDaysTpl(tplDate);
-
 renderFiveDay();
 
 export default renderFiveDay;
-
-// apiService.getData('forecast').then(data => {
-//   const renderData = renderFiveDays(data);
-//   const tplDate = {
-//     arrowLeft,
-//     arrowRight,
-//     ...renderData,
-//   };
-//   document.querySelector('.fivedays-weather').insertAdjacentHTML('afterbegin', fiveDaysTpl(tplDate));
-
-//   // console.log(data);
-// });
-
-// Рендерим данные за 5 дней (перенести в файл fiveDays) - Руслан
-// const fiveDays = document.querySelector('.fivedays-weather'); // вынести в рефы
-
-// renderFiveDays = () => {
-//   fiveDays.innerHTML = ;
-// };

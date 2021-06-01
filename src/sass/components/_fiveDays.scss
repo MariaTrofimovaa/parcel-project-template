@@ -3,6 +3,7 @@
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 20px;
+  margin-bottom: 30px;
 
   width: 280px;
   background: rgba(16, 33, 54, 0.8);
@@ -19,6 +20,7 @@
 .arrow {
   display: flex;
   margin-left: 80px;
+  margin-bottom: 20px;
 }
 
 .show-chart-list {
@@ -100,13 +102,16 @@
   line-height: 1.21;
 }
 
-
-@media screen and (min-width: 768px) {
-
 .arrowBtn {
   background-color: transparent;
   border: none;
 }
+
+.is-active {
+  background-color: white;
+}
+
+@media screen and (min-width: 768px) {
   .fivedays-weather {
     width: 620px;
     text-align: center;
