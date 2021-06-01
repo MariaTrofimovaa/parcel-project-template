@@ -16,7 +16,7 @@ function renderFiveDay() {
     .getData('forecast')
     .then(data => {
       const renderData = renderFiveDays(data);
-
+      
       const tplDate = {
         arrowLeft,
         arrowRight,

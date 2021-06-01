@@ -4,6 +4,7 @@
   }
 
   padding-top: 8px;
+
   list-style: none;
   min-width: 120px;
   height: 220px;
@@ -20,6 +21,7 @@
 
   @media screen and (min-width: 1280px) {
     margin: 0;
+    padding-top: 4px;
   }
 
   &-time {
@@ -36,6 +38,10 @@
       margin: 0 auto;
       width: 60px;
       height: 60px;
+    }
+    @media screen and (min-width: 1280px) {
+      font-size: 25px;
+      margin-bottom: 10px;
     }
   }
   &-data {
@@ -119,6 +125,9 @@
   }
   &_hidden {
     opacity: 0;
+  }
+  @media screen and (min-width: 1280px) {
+    display: none;
   }
 }
 .five-days-containeer__scroll {

@@ -31,7 +31,6 @@ function renderMoreInfoData(moreDaysData) {
   rightArrow.addEventListener('click', scrollToLeft);
   leftArrow.addEventListener('click', scrollToRight);
 
-  // *****
   function scrollToLeft() {
     moreInfoList.scroll({
       left: +moreInfoList.scrollLeft + 260,
@@ -69,7 +68,6 @@ function hourConverter(UNIX) {
   let CurrentHour = `${hour}:${min}`;
   return CurrentHour;
 }
-
 
 export default renderMoreInfoData;
 
