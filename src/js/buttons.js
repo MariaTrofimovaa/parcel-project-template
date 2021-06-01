@@ -18,13 +18,13 @@ fiveDaysBtn.onclick = function () {
   fivedaysChart.hidden = false;
   additionalInfo.hidden = true;
 
-  if (oneDay.hidden && screenWidth >= 768 && screenWidth < 1280) {
-    buttonBox.style.marginTop = '377px';
-  } else if (oneDay.hidden && screenWidth >= 1280) {
-    buttonBox.style.marginTop = '310px';
-  } else {
-    buttonBox.style.marginTop = '65px';
-  }
+  // if (oneDay.hidden && screenWidth >= 768 && screenWidth < 1280) {
+  //   buttonBox.style.marginTop = '377px';
+  // } else if (oneDay.hidden && screenWidth >= 1280) {
+  //   buttonBox.style.marginTop = '310px';
+  // } else {
+  //   buttonBox.style.marginTop = '65px';
+  // }
 
   todayBtn.onclick = function () {
     todayBtn.classList.add('is-active');
@@ -35,13 +35,13 @@ fiveDaysBtn.onclick = function () {
     fivedaysChart.hidden = true;
     additionalInfo.hidden = false;
 
-    if (!oneDay.hidden && screenWidth >= 1280) {
-      buttonBox.style.marginTop = '20px';
-    } else if (!oneDay.hidden && screenWidth >= 768 && screenWidth < 1280) {
-      buttonBox.style.marginTop = '40px';
-    } else if (!oneDay.hidden) {
-      buttonBox.style.marginTop = '30px';
-    }
+    // if (!oneDay.hidden && screenWidth >= 1280) {
+    //   buttonBox.style.marginTop = '20px';
+    // } else if (!oneDay.hidden && screenWidth >= 768 && screenWidth < 1280) {
+    //   buttonBox.style.marginTop = '40px';
+    // } else if (!oneDay.hidden) {
+    //   buttonBox.style.marginTop = '30px';
+    // }
   };
 };
 
