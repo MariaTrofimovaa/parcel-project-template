@@ -1,3 +1,7 @@
+div.search-location__slider-list-item {
+  margin-right: 10px;
+}
+
 .input-box {
   padding-top: 30px;
 }
@@ -60,12 +64,32 @@
 .favorite-box {
   display: flex;
   align-items: center;
-  // justify-content: space-between;
+  display: flex;
+  justify-content: center;
 
   img {
-    width: 28px;
-    height: 28px;
+    width: 4px;
+    height: 8px;
+    display: block;
+    margin: 0 auto;
   }
+}
+
+.left,
+.right {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+}
+
+.left {
+  margin-right: 14px;
+}
+
+.right {
+  margin-left: 14px;
 }
 
 .city-list {
@@ -74,7 +98,7 @@
   // justify-content: space-around;
   position: relative;
   // overflow: hidden;
-  margin-right: 10px;
+  // margin-right: 10px;
   opacity: 0.4;
   width: 230px;
 }
@@ -84,7 +108,7 @@
   height: 28px;
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0)
+  background: rgba(255, 255, 255, 0);
 }
 
 .search-location__slider {
@@ -92,41 +116,6 @@
   align-items: center;
   justify-content: space-around;
   position: relative;
-
-  // &-btnPrev,
-  // &-btnNext {
-  //   opacity: 0.471;
-  //   width: 28px;
-  //   height: 28px;
-  //   background-color: #ffffff;
-  //   border-radius: 50%;
-  //   border: none;
-  //   cursor: pointer;
-  //   padding: 0;
-  //   transition: opacity 200ms linear;
-  //   outline: none;
-  //   position: absolute;
-
-  //   &:hover,
-  //   &:hover svg {
-  //     opacity: 1;
-  //   }
-
-  //   & svg {
-  //     fill: #000000;
-  //     transition: opacity 200ms linear;
-  //     width: 80%;
-  //     height: 80%;
-  //   }
-  // }
-
-  // &-btnPrev {
-  //   left: 0;
-  // }
-
-  // &-btnNext {
-  //   right: 0;
-  // }
 
   &-list {
     list-style: none;
@@ -136,19 +125,13 @@
     height: 27px;
   }
 
-  &-list svg {
-    display: block;
-    height: 100%;
-    width: 12px;
-  }
-
   &-list-item {
     border-radius: 12px;
     background-color: rgb(16, 33, 54);
     // opacity: 0.471;
-    padding: 5px 5px 5px 10px;
+    padding: 5px 12px 5px 12px;
     transition: opacity 200ms linear;
-    width: 86px;
+    // width: 86px;
     &:not(:last-child) {
       margin-right: 10px;
     }
@@ -162,7 +145,8 @@
   &-list-content {
     display: flex;
     font-size: 12px;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &-list-sity {
@@ -190,10 +174,9 @@
     width: 16px;
     outline: none;
     padding: 0;
+    color: white;
   }
 }
-
-
 
 @media (min-width: 768px) {
   .city-list {
@@ -228,7 +211,7 @@
   .favorite-box {
     padding-right: 400px;
     padding-left: 400px;
-    // justify-content: space-between;
+    margin-bottom: 92px;
   }
 
   .input-box {
@@ -237,4 +220,3 @@
     padding-left: 380px;
   }
 }
-
