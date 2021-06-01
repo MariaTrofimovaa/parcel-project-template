@@ -169,4 +169,8 @@ function getChartData() {
   // initEvtFiveDays();
 }
 
-export default { getChartData, onShowChartClick };
+function renderChartData() {
+  getChartData();
+}
+
+export default renderChartData;

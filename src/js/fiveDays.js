@@ -13,7 +13,7 @@ function renderFiveDay() {
     .getData('forecast')
     .then(data => {
       const renderData = renderFiveDays(data);
-      
+
       const tplDate = {
         arrowLeft,
         arrowRight,
@@ -22,12 +22,12 @@ function renderFiveDay() {
         ...renderData,
       };
 
-
       document.querySelector('.fivedays-weather').innerHTML = fiveDaysTpl(tplDate);
       const arrowLeftBtn = document.querySelector('.left-btn');
       const arrowRightBtn = document.querySelector('.right-btn');
       const container = document.querySelector('.five-days-weather-list');
 
+      // renderChartData();
       arrowRightBtn.addEventListener('click', scrollToRight);
 
       function scrollToRight(e) {
@@ -46,7 +46,6 @@ function renderFiveDay() {
       }
 
       moreInfoWeather();
-
     })
     .catch(error => {
       console.log(error);
