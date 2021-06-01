@@ -6,13 +6,14 @@ import { renderFiveDays } from '../js/base/helper.js';
 import moreInfoWeather from './moreInfo.js';
 import arrowRigfhtInfo from '../images/arrow-right-info.png';
 import arrowLeftInfo from '../images/arrow-left-info.png';
+import renderChartData from './chart.js';
 
 function renderFiveDay() {
   return apiService
     .getData('forecast')
     .then(data => {
       const renderData = renderFiveDays(data);
-
+      
       const tplDate = {
         arrowLeft,
         arrowRight,
@@ -20,6 +21,7 @@ function renderFiveDay() {
         arrowLeftInfo,
         ...renderData,
       };
+
 
       document.querySelector('.fivedays-weather').innerHTML = fiveDaysTpl(tplDate);
       const arrowLeftBtn = document.querySelector('.left-btn');
@@ -44,6 +46,7 @@ function renderFiveDay() {
       }
 
       moreInfoWeather();
+
     })
     .catch(error => {
       console.log(error);

@@ -4,20 +4,17 @@ import renderOneDay from './oneDay.js';
 import renderFiveDay from './fiveDays.js';
 import renderCalendar from './calendar.js';
 import renderChartData from './chart.js';
-import setBgImages from './components/bg-service.js';
+import { setBgImages, setLocationImg } from './components/bg-service.js';
 import Siema from 'siema';
-import favoriteCity from '../templates/favoriteCity.hbs'
+import favoriteCity from '../templates/favoriteCity.hbs';
 
 const searchbox = document.querySelector('.input-form');
 const inputRef = document.querySelector('.search-box');
 const favoriteBtnRef = document.querySelector('.favorite-btn');
 const favListRef = document.querySelector('.city-list');
-const favCloseBtn = document.querySelector(
-  '.search-location__slider-list-content-renove-city__button'
-);
+
 const sliderBtnLeft = document.querySelector('.fav-btn.left');
 const sliderBtnRight = document.querySelector('.fav-btn.right');
-
 
 sliderBtnLeft.addEventListener('click', () => mySiema.prev());
 sliderBtnRight.addEventListener('click', () => mySiema.next());
@@ -37,14 +34,13 @@ function setQuery(evt) {
   renderOneDay();
   renderCalendar();
   renderFiveDay();
-  renderChartData();
+  // renderChartData();
   setBgImages();
 }
 
 // favoriteBtnRef.addEventListener('click', addFavCityOnList);
 
 function addFavCityOnList() {
-  // если пустая строка не дает добавить (есть баг что пробел не воспринимает как пробел и добавляет если его тыкнуть, надо будет подуамть)
   if (inputRef.value.trim() === '') {
     return;
   }
@@ -59,7 +55,6 @@ function addFavCityOnList() {
 const storage = {
   cityArray: [],
 };
-
 
 const savedArray = JSON.parse(localStorage.getItem('City'));
 if (savedArray) {
@@ -87,19 +82,47 @@ const updateView = () => {
 };
 
 
+const widthOfScreen = window.innerWidth;
+
+favoriteBtnRef.addEventListener('click', () => {
+  if (widthOfScreen < 768) {
+    if (storage.cityArray.length > 2) {
+      sliderBtnRight.hidden = false;
+    }
+  }
+
+  if (widthOfScreen >= 768) {
+    if (storage.cityArray.length > 4) {
+      sliderBtnRight.hidden = false;
+    }
+  }
+});
+
+if (widthOfScreen < 768) {
+  if (storage.cityArray.length <= 2) {
+    sliderBtnRight.hidden = true;
+  }
+}
+
+if (widthOfScreen >= 768) {
+  if (storage.cityArray.length <= 4) {
+    sliderBtnRight.hidden = true;
+  }
+}
+
+
 const saveLocalStorage = () => {
-  // значение инпута записал в переменную
   const inputValue = inputRef.value;
-  // не дает запушить в локал сторадж пустую строку, проблема с пробелами все еще актуальна О.о
+
+  if (storage.cityArray.includes(inputValue)) {
+    return;
+  }
+
   if (inputRef.value.trim() === '') {
     return;
   }
-  // пушим значение инпутвэлью в на массив городов
+
   storage.cityArray.push(inputValue);
-  // записываем значения инпута //в нашем случае в массив// в виде строки
-  // есть баг, при обновлении страницы и добавления нового массива - перезаписывает старый с нуля,
-  // т.к.типо один и тот же ключ, ниже альтернатива которая к ключу типо добавляет время и делает его
-  // уникальным, пока не предумал как это использовать
   localStorage.setItem('City', JSON.stringify(storage.cityArray));
 
   inputRef.value = '';
@@ -107,8 +130,6 @@ const saveLocalStorage = () => {
   div.classList.add('search-city__slider-list-item');
   div.innerHTML = favoriteCity(inputValue);
   mySiema.append(div);
-  //альтернатива, можете раскоментить и посмотреть что происходит =\
-  // localStorage.setItem('city_' + new Date().getTime(), JSON.stringify(storage.cityArray));
   updateView();
 };
 
@@ -132,67 +153,47 @@ function addInputValueFromList(event) {
     updateView(storage.cityArray);
   }
 
+  if (widthOfScreen < 768) {
+      if (storage.cityArray.length <= 2) {
+        sliderBtnRight.hidden = true;
+        sliderBtnLeft.hidden = true;
+      }
+    }
+
+  if (widthOfScreen >= 768) {
+    if (storage.cityArray.length<= 4) {
+      sliderBtnRight.hidden = true;
+    }
+  }
+  
+
   if (event.target.nodeName === 'P') {
     apiServise.query = event.path[1].childNodes[1].textContent;
     renderOneDay();
     setBgImages();
+    setLocationImg();
     renderFiveDay();
     setTimeout(() => {
       destroy();
       renderChartData();
-    }, 300);
+    }, 500);
   }
 }
 
 
+sliderBtnLeft.addEventListener('click', () => {
+  mySiema.prev();
+  if (mySiema.currentSlide === 0) {
+    sliderBtnLeft.hidden = true;
+  }
+});
+sliderBtnRight.addEventListener('click', () => {
+  mySiema.next();
+  if (mySiema.currentSlide > 0) {
+    sliderBtnLeft.hidden = false;
+  }
+});
 
-
-// renderOneDay();
-//   renderCalendar();
-//   renderFiveDay();
-//   renderChartData();
-//   setBgImages();
-
-// searchbox.addEventListener('submit', saveLocalStorage);
-
-// * Localstorage
-// favListRef.addEventListener('click', addToLocalStorage);
-// const storage = {
-//   citiesArr: [],
-// };
-// function addToLocalStorage() {
-//   const inputValue = inputRef.value;
-//   settings.citiesArr.push(inputValue);
-
-//   localStorage.setItem('City', JSON.stringify(storage.citiesArr));
-// }
-
-// function getLocalStorage() {
-//   const citiesArr = localStorage.getItem('City');
-
-//   if (!citiesArr) {
-//     return;
-//   }
-
-//   const parsedCyties = JSON.parse(citiesArr);
-//   storage.citiesArr = parsedCyties;
-
-//   return parsedCyties;
-// }
-
-// function createMarkup(city) {
-//   const markup = favCity(city);
-//   favListRef.innerHTML = markup;
-// }
-
-// createMarkup(getLocalStorage());
-
-// //
-
-// favListRef.addEventListener('click', event => {
-//   if (event.target.nodeName === 'BUTTON') {
-//     const textContent = event.path[1].childNodes[1].textContent;
-//     const indexForRemove = storage.favoriteCities.indexOf(textContent);
-//     createMarkup(getLocalStorage());
-//   }
-// });
+if (mySiema.currentSlide === 0) {
+  sliderBtnLeft.hidden = true;
+}

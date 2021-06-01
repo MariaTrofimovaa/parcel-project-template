@@ -1,7 +1,7 @@
 import apiService from '../base/apiService.js';
 
 const body = document.body;
-
+let location = 'kiev';
 function setBgImages() {
   apiService.fetchImages('Lviv').then(data => {
     const contryImgUrl = data.hits[1].largeImageURL;
@@ -11,75 +11,44 @@ function setBgImages() {
 }
 setBgImages();
 
-export default setBgImages;
+// Получаем текущую локацию после нажатия на Submit или Enter
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-// =====================================
-// apiService.fetchImages().then(setBackgroundImage);
+const setLocationImg = newLocation => {
+  location = newLocation;
+};
 
-// // refs.searchInput.addEventListener('submit', changeBackgroundImage);
+export { setBgImages, setLocationImg };
 
-// function changeBackgroundImage(event) {
-//   if (typeof event == 'object') {
-//     event.preventDefault();
-//     const form = event.currentTarget;
-//     apiService.query = form.elements.query.value;
-//   } else {
-//     apiService.query = event;
-//   }
-//   apiService.fetchImages().then(setBackgroundImage);
+// *************************** geilocation
+
+// navigator.geolocation.getCurrentPosition(success, error);
+// function error() {
+//   // apiService.query();
+//   // renderOneDayMarkup();
+//   // dataFiveDays();
+//   setLocationImg('Kiev');
+//   setBgImages();
 // }
 
-// function setBackgroundImage(backgroundImages) {
-//   // console.log(backgroundImages);
+// function success(position) {
+//   const apikey = '993fb22893a947dbb2d0ca6e36241a91';
 
-//   if (backgroundImages.length === 0) {
-//     apiService.query = 'cloudy';
-//     apiService.fetchImages().then(setBackgroundImage);
-//   } else {
-//     body.backgroundWrapper.style = `background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)),
-//   url('${backgroundImages[2].largeImageURL}') center fixed; background-size: cover;`;
-//   }
+//   fetch(
+//     `https://api.opencagedata.com/geocode/v1/json?q=${position.coords.latitude}+${position.coords.longitude}&key=${apikey}`,
+//   )
+//     .then(response => {
+//       if (response.ok) {
+//         return response.json();
+//       }
+//       return Promise.reject(`Ошибка! Такого города нет в списке!`);
+//     })
+//     .then(data => {
+//       const myCity = data.results[0].components.city;
+//       console.log(myCity);
+//       // apiService.query(myCity);
+//       // renderOneDayMarkup();
+//       // dataFiveDays();
+//       setLocationImg(myCity);
+//       setBgImages();
+//     });
 // }
-
-// changeBackgroundImage();
-
-// ==================================== Рандомные картинки
-// const body = document.body;
-
-// function findRandomImg(min = 0, max = 20) {
-//   return Math.floor(Math.random() * (max - min) + min);
-// }
-
-// function renderBgImg(cityName) {
-//   apiService
-//     .fetchImages(cityName)
-//     .then(res => res.hits[findRandomImg(0, res.hits.length)].largeImageURL)
-//     .then(res => (body.style.backgroundImage = `url(${res})`));
-// }
-// renderBgImg('Lviv');
